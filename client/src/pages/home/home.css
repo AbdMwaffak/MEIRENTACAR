@@ -1,0 +1,468 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.poster {
+  background-color: #3c3c39;
+  width: 94%;
+  aspect-ratio: 16/9;
+  border-radius: 15px;
+  margin: 10px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+
+}
+
+.vv22,
+.vv11{
+  color: cornsilk;
+  font-size: calc(0.5rem + 0.9vw);
+}
+
+
+.titel1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.c1 {
+  height: 15px;
+  width: 15px;
+  background-color: #e8702e;
+  border-radius: 100%;
+}
+
+.c2 {
+  height: 20px;
+  width: 20px;
+  background-color: #e8702e;
+  border-radius: 100%;
+}
+
+.c3 {
+  height: 25px;
+  width: 25px;
+  background-color: #e8702e;
+  border-radius: 100%;
+}
+
+.cc {
+  height: 35px;
+  width: 150px;
+  background-color: #e8702e;
+  color: aliceblue;
+  border-radius: 16px;
+  font-family: fantasy;
+  font-size: larger;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.services {
+  display: flex;
+  background-color: #3c3c39;
+  width: 94%;
+  border-radius: 15px;
+  margin: 10px;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: space-around;
+  padding: 20px 0px;
+}
+
+.serviceContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 180px;
+}
+
+.service {
+  height: 120px;
+  width: 120px;
+  background-color: #e8702e;
+  display: flex;
+  border-radius: 16px;
+  margin: 10px;
+  box-shadow: 6px 5px 20px 0px #e86f2eb8;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.servIcon {
+  width: 70%;
+  height: 70%;
+}
+
+.serviceTitel {
+  width: 150px;
+  color: #ffffff;
+}
+
+.cars {
+  width: 100%;
+  padding: 10px;
+  /* max-width: 1480px; */
+  align-items: center;
+  gap: 20px;
+  display: grid;
+  grid-auto-columns: (max-content 4);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;
+  box-sizing: border-box;
+}
+
+.sercheoutH {
+  width: 80%;
+  aspect-ratio: 7/1;
+  background-color: #11111077;
+  position: relative;
+  top: 65%;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.sercheInputH {
+  width: 35%;
+  /* height: 20px; */
+  border-radius: 4px;
+  border: none;
+  padding: 0.93% 10%;
+  margin-right: 2.5%;
+}
+
+.sercheInH {
+  width: 90%;
+  height: 40%;
+  /* min-height: ; */
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: row;
+}
+
+.startH {
+  width: 20%;
+  /* height: 100%; */
+  font-family: fantasy;
+  margin-right: 2.5%;
+  font-size: 2.5vw;
+  background-color: #e8702e;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  /* padding: 0.4% 4px; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.filterH {
+  width: 20%;
+  /* height: 34px; */
+  font-family: fantasy;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 2.5vw;
+  background-color: #e8702e;
+  border: none;
+  border-radius: 4px;
+  color: white;
+}
+
+.filterH:hover {
+  background-color: #ffad1d;
+}
+
+.startH:hover {
+  background-color: #ffad1d;
+}
+
+.arrwDownH {
+  width: 2.5vw;
+  transform: rotate(0deg);
+  transition: all 0.2s linear;
+}
+
+.arrwUpH {
+  width: 2.5vw;
+  /* rotate: 180deg;
+    animation: 20s linear; */
+  transform: rotate(180deg);
+  transition: all 0.2s linear;
+}
+
+.filterBackgeDownH {
+  width: 150px;
+  height: 120px;
+  background-color: black;
+  position: absolute;
+  top: 10vw;
+  right: 7px;
+  border-radius: 16px;
+  transform: scale(1.1);
+  transition: all 0.2s linear;
+  padding: 10px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+}
+
+.brandsH,
+.seatsH,
+.pricesH,
+.colorsH {
+  width: 130px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* background-color: #8dc320; */
+  justify-content: space-around;
+}
+
+.filterNameH {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filterNameH :hover {
+  background-color: #e8702e;
+}
+
+.selcterH {
+  width: 30%;
+  background-color: #ffffff00;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+.selectColorH {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.colorsCategoryH {
+  width: 170px;
+  height: 68px;
+  background-color: black;
+  position: absolute;
+  top: 20px;
+  right: 163px;
+  border-radius: 16px;
+  transform: scale(1.1);
+  transition: all 0.2s linear;
+  padding: 10px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.colll {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  margin: 3px;
+}
+
+.col0 {
+  height: 28px;
+  width: 28px;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.col1 {
+  background-color: Blue;
+}
+
+.col2 {
+  background-color: Red;
+}
+
+.col3 {
+  background-color: Silver;
+}
+
+.col4 {
+  background-color: Orange;
+}
+
+.col5 {
+  background-color: Green;
+}
+
+.col6 {
+  background-color: White;
+}
+
+.col7 {
+  width: 28px;
+  height: 28px;
+  background-color: Black;
+  border: 2px solid white;
+}
+
+.numSeatsH {
+  width: 30px;
+  border: none;
+  border-radius: 4px;
+}
+
+.brandCategoryH {
+  width: 150px;
+  height: 250px;
+  background-color: black;
+  position: absolute;
+  top: 20px;
+  right: 163px;
+  border-radius: 16px;
+  transform: scale(1.1);
+  transition: all 0.2s linear;
+  padding: 10px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 3px;
+  color: white;
+  /* overflow: scroll; */
+}
+
+.brandCategoryInerH {
+  width: 120px;
+  height: 200px;
+  background-color: black;
+  /* border-radius: 16px; */
+  transform: scale(1.1);
+  transition: all 0.2s linear;
+  padding: 10px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 3px;
+  color: white;
+  overflow-y: scroll;
+}
+
+.selectBrandH {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.bs {
+  width: 90%;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  background-color: #e8702e;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 4px;
+  border-radius: 4px;
+}
+
+.selectPriceH {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.priceCategoryH {
+  width: 110px;
+  height: 130px;
+  background-color: black;
+  position: absolute;
+  top: 20px;
+  right: 163px;
+  border-radius: 16px;
+  transform: scale(1.1);
+  transition: all 0.2s linear;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 3px;
+  color: white;
+}
+
+.pp {
+  width: 80%;
+  height: 20px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.pp:hover {
+  background-color: #e8702e;
+}
+
+.homeImg{
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+}
+
+.carPage{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.next,
+.prev{
+  width: 100px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: white;
+  color: #f96402;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.next:hover,
+.prev:hover{
+    color : white;
+background : #f96402;
+}
+.arr{
+  font-size: 24px;
+}
+

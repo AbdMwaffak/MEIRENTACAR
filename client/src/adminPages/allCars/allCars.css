@@ -1,0 +1,29 @@
+.deletedCars {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 1000px;
+}
+
+
+.titelDeletedCars {
+    width: 96%;
+    aspect-ratio: 17/1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.deletedCarsNum {
+    width: 30%;
+    height: 100%;
+    border-bottom: 3px solid #E8702E;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 20px;
+    /* margin: 20px; */
+    font-size: 4vw;
+
+}

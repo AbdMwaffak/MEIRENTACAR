@@ -1,0 +1,340 @@
+.mySercheBar {
+    width: 96%;
+    /* border-bottom: 3px solid #E8702E; */
+    /* border-top: 3px solid #E8702E; */
+    margin-top: 5px;
+    /* background-color: #E8702E; */
+    position: sticky;
+    top: 50px;
+    z-index: 102;
+}
+
+.sercheout {
+    width: 100%;
+    height: 36px;
+    /* aspect-ratio: 17/1; */
+    background-color: #575755;
+    position: relative;
+    top: 65%;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 5px 0;
+
+}
+
+.sercheInput {
+    width: calc(100% - 5px);
+    /* height: 20px; */
+    border-radius: 4px;
+    border: none;
+    padding: 0.93% 10%;
+    /* margin-right: 2.5%; */
+
+
+}
+
+.sercheIn {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    /* margin-left: 30px; */
+    justify-content: center;
+}
+
+.start {
+    width: 25px;
+    font-family: fantasy;
+    margin-right: -26px;
+    border: none;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 100;
+}
+
+.filter {
+    width: 20%;
+    /* height: 34px; */
+    font-family: fantasy;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 2.5vw;
+    background-color: #E8702E;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    
+}
+
+.filter:hover {
+    background-color: #FFAD1D;
+}
+
+.start:hover {
+    background-color: #FFAD1D;
+}
+
+.arrwDown {
+    width: 2.5vw;
+    transform: rotate(0deg);
+    transition: all 0.2s linear;
+}
+
+.arrwUp {
+    width: 2.5vw;
+    /* rotate: 180deg;
+    animation: 20s linear; */
+    transform: rotate(180deg);
+    transition: all 0.2s linear;
+}
+
+.filterBackgeDown {
+    width: 150px;
+    height: 120px;
+    background-color: black;
+    position: absolute;
+    top: 8vw;
+    right: 16%;
+    border-radius: 16px;
+    transform: scale(1.1);
+    transition: all 0.2s linear;
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    z-index: 1000;
+
+}
+
+.brands,
+.seats,
+.prices,
+.colors {
+    width: 130px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* background-color: #8dc320; */
+    justify-content: space-around;
+}
+
+.filterName {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filterName :hover {
+    background-color: #E8702E;
+}
+
+.selcter {
+    width: 30%;
+    background-color: #ffffff00;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+.selectColor {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    /* background-color: white; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    font-size: 8px;
+    font-weight: bold;
+}
+
+.colorsCategory {
+    width: 170px;
+    height: 68px;
+    background-color: black;
+    position: absolute;
+    top: 20px;
+    right: 163px;
+    border-radius: 16px;
+    transform: scale(1.1);
+    transition: all 0.2s linear;
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.colll {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin: 3px;
+    border: 2px solid white;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* .col0 {
+    height: 28px;
+    width: 28px;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.col1 {
+    background-color: Blue;
+}
+
+.col2 {
+    background-color: Red;
+}
+
+.col3 {
+    background-color: Silver;
+}
+
+.col4 {
+    background-color: Orange;
+}
+
+.col5 {
+    background-color: Green;
+}
+
+.col6 {
+    background-color: White;
+}
+
+.col7 {
+    width: 28px;
+    height: 28px;
+    background-color: Black;
+    border: 2px solid white;
+} */
+
+.numSeats {
+    width: 30px;
+    border: none;
+    border-radius: 4px;
+}
+
+.brandCategory {
+    width: 150px;
+    height: 250px;
+    background-color: black;
+    position: absolute;
+    top: 20px;
+    right: 163px;
+    border-radius: 16px;
+    transform: scale(1.1);
+    transition: all 0.2s linear;
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 3px;
+    color: white;
+    /* overflow: scroll; */
+}
+
+.brandCategoryIner {
+    width: 120px;
+    height: 200px;
+    background-color: black;
+    /* border-radius: 16px; */
+    transform: scale(1.1);
+    transition: all 0.2s linear;
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 3px;
+    color: white;
+    overflow-y: scroll;
+}
+
+.selectBrand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+}
+
+.bs {
+    width: 90%;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    background-color: #E8702E;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 4px;
+    border-radius: 4px;
+}
+
+.selectPrice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.priceCategory {
+    width: 110px;
+    height: 130px;
+    background-color: black;
+    position: absolute;
+    top: 20px;
+    right: 163px;
+    border-radius: 16px;
+    transform: scale(1.1);
+    transition: all 0.2s linear;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 3px;
+    color: white;
+}
+
+.pp {
+    width: 80%;
+    height: 20px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.pp:hover {
+    background-color: #E8702E;
+}
+
+.searchIcon {
+    width: 25px;
+    font-size: 16px;
+    color: aliceblue;
+}

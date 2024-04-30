@@ -1,0 +1,182 @@
+.carCard {
+  width: 300px;
+  background-color: #3c3c39;
+  border-radius: 16px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.1s linear;
+}
+
+@media screen and (max-width: 450px) {
+  .carCard {
+    width: 100%;
+  }
+}
+
+.carCard:hover {
+  /* scale: 1.05; */
+  box-shadow: 4px 4px 20px black;
+}
+
+.carImge {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background-color: #e8702e;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.carInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.caedButtens {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.price {
+  width: -webkit-fill-available;
+  height: 60px;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 10px;
+  border: 2px solid #e8702e;
+  justify-content: space-around;
+  margin: 5px 0px;
+  /* padding: 10px; */
+}
+
+.textPrice {
+  height: 25px;
+}
+
+.PartialPrice1,
+.PartialPrice2,
+.PartialPrice3 {
+  width: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: #E8702E; */
+}
+
+.PartialPrice2 {
+  width: 35%;
+  border-left: 4px solid #e8702e;
+  border-right: 4px solid #e8702e;
+}
+
+.carName {
+  color: white;
+  font-weight: bold;
+}
+
+.carIcons {
+  width: 100%;
+  height: 65px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.iconContect {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+  /* background-color: white; */
+}
+
+.iconText {
+  width: 100%;
+  color: white;
+  font-size: 16px;
+}
+
+.site {
+  height: 27px;
+  width: 27px;
+}
+
+.dash {
+  width: 40px;
+  height: 3px;
+  background-color: #e8702e;
+  border-radius: 16px;
+}
+
+.whatsAppLogo {
+  width: 40px;
+  aspect-ratio: 1/1;
+}
+
+.telegramLogo {
+  width: 40px;
+  aspect-ratio: 1/1;
+}
+
+.phoneLogo {
+  width: 40px;
+  aspect-ratio: 1/1;
+}
+
+.ccc1 {
+  width: 100%;
+  height: 100%;
+}
+
+.eButten {
+  width: 100%;
+  height: 40px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  background-color: #f96402;
+  width: 40%;
+}
+
+.eButten:hover {
+  box-shadow: 0px 0px 6px 0px #ffc107;
+  border: 3px solid #fff;
+}
+
+.dButten {
+  background-color: red;
+  width: 40%;
+  height: 40px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+}
+
+.dButten:hover {
+  background-color: #910505;
+  box-shadow: 0px 0px 6px 0px red;
+  border: 3px solid #fff;
+ 
+}
+

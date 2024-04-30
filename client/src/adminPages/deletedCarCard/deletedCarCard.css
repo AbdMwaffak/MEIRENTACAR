@@ -1,0 +1,170 @@
+.carCard {
+    width: 300px;
+    background-color: #3C3C39;
+    border-radius: 16px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carImge {
+    width: 100%;
+    aspect-ratio: 3/2;
+    background-color: #E8702E;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.carInfo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.caedButtens {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+
+
+}
+
+.price {
+    width: -webkit-fill-available;
+    height: 60px;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid #e8702e;
+    justify-content: space-around;
+    margin: 5px 0px;
+    /* padding: 10px; */
+}
+
+
+.textPrice {
+    height: 25px;
+}
+
+.PartialPrice1,
+.PartialPrice2,
+.PartialPrice3 {
+    width: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: #E8702E; */
+}
+
+.PartialPrice2 {
+    border-left: 2px solid #E8702E;
+    border-right: 2px solid #E8702E;
+}
+
+.carName {
+    color: white;
+    font-weight: bold;
+}
+
+.carIcons {
+    width: 100%;
+    height: 65px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.iconContect {
+    width: 15%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    /* background-color: white; */
+}
+
+.iconText {
+    width: 100%;
+    color: white;
+    font-size: 16px;
+}
+
+.site {
+    height: 27px;
+    width: 27px;
+}
+
+.dash {
+    width: 40px;
+    height: 3px;
+    background-color: #E8702E;
+    border-radius: 16px;
+}
+
+.whatsAppLogo {
+    width: 40px;
+    aspect-ratio: 1/1;
+}
+
+.telegramLogo {
+    width: 40px;
+    aspect-ratio: 1/1;
+}
+
+.phoneLogo {
+    width: 40px;
+    aspect-ratio: 1/1;
+}
+
+.ccc1 {
+    width: 100%;
+    height: 100%;
+}
+
+/* 
+.eButten {
+    width: 40%;
+    background-color: rgb(225, 218, 17);
+    border: rgb(225, 218, 17);
+    color: #555554;
+    font-weight: bold;
+}
+
+.eButten:hover {
+    background-color: #E8702E;
+    box-shadow: 0px 0px 6px 0px #ffc107;
+
+}
+
+.dButten {
+    width: 40%;
+    background-color: red;
+    border: #E8702E;
+    color: #555554;
+font-weight: bold;
+}
+
+.dButten:hover {
+    background-color: #910505;
+    box-shadow: 0px 0px 6px 0px red;
+
+}
+
+*/
