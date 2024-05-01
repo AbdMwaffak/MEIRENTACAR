@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
-import Api from '../extensions/API';
 import toast from 'react-hot-toast';
 /////////////
 const cookies = new Cookies();
@@ -36,7 +35,7 @@ const editCarSlice = createSlice({
     });
     builder.addCase(editCar.fulfilled, (state, action) => {
       state.data = action.payload;
-      state.status = "Successful"
+      state.status = 'Successful';
       toast.success('Car Updated Successfully!');
     });
     builder.addCase(editCar.rejected, (state, action) => {

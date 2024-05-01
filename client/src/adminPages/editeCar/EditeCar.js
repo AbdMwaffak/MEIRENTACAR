@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useParams } from 'react-router-dom';
-import Api from '../../extensions/API';
+import { useLocation } from 'react-router-dom';
 import Brands from '../../extensions/Brands';
 import Categorys from '../../extensions/Categorys';
 import Colors from '../../extensions/Colors';
+import Loader from '../../extensions/loader/Loader';
 import Models from '../../extensions/Models';
 import { getCarById } from '../../RTK/carByIdSlice';
 import { editCar } from '../../RTKadmin/editCarSlice';
 import './editeCar.css';
-import Loader from '../../extensions/loader/Loader';
 
 const EditeCar = () => {
   const id = useLocation()?.state?.id;
-  console.log(id)
+  console.log(id);
   // const id = useParams();
   ////////////////
   const [name, setname] = useState('name');
@@ -25,7 +24,7 @@ const EditeCar = () => {
   const [powerHorse, setpowerHorse] = useState('');
   const [speed, setspeed] = useState('0');
   const [seats, setseats] = useState('4');
-  const [priceWeekly, setPriceWeekly] = useState(1000); 
+  const [priceWeekly, setPriceWeekly] = useState(1000);
   const [priceMonthly, setPriceMonthly] = useState(1000);
   const [price, setPrice] = useState(1000);
   const [brand, setbrand] = useState('');
@@ -58,7 +57,6 @@ const EditeCar = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCarById(id));
-
   }, [dispatch]);
   ///////////
   const imag2OnChange = (e) => {
@@ -119,7 +117,7 @@ const EditeCar = () => {
 
   return (
     <div className='addCar'>
-         {set === 'loading' && <Loader text={'saving'}/>}
+      {set === 'loading' && <Loader text={'saving'} />}
       <div className='addCarimages'>
         {/* <div className='imagMasseg' style={{ display: imagesSquer?.length ? "flex" : "none" }}>
                     no images yet,  add some images
@@ -128,6 +126,7 @@ const EditeCar = () => {
           <img
             src={imagesForm ? image.URL : `/cars/${image}`}
             className='imgAC'
+            alt=''
           />
         ))}
       </div>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Carousel} from 'react-bootstrap';
+import { Carousel } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import CarCard from '../../carCard/CarCard';
 import intros from '../../extensions/intros';
@@ -7,15 +7,14 @@ import CarFooter from '../../footer/CarFooter';
 import MySercheBar from '../../mySercheBar/MySercheBar';
 import { getAllCars } from '../../RTK/allCarsSlice';
 import { getSettings } from '../../RTKadmin/getSettingsSlice';
-import CarPagination from '../../extensions/pagination/CarPagination'
 import './home.css';
 
 // style={{ display: active ? "none" : "flex" }}>
 const Home = () => {
-  const [arrw, setArrw] = useState(false);
-  const [s1, setS1] = useState(false);
-  const [s2, setS2] = useState(false);
-  const [s3, setS3] = useState(false);
+  // const [arrw, setArrw] = useState(false);
+  // const [s1, setS1] = useState(false);
+  // const [s2, setS2] = useState(false);
+  // const [s3, setS3] = useState(false);
   const [page, setPage] = useState(1);
 
   const [seatsNum, setSeatsNum] = useState(0);
@@ -27,33 +26,33 @@ const Home = () => {
     dispatch(getSettings());
   }, [dispatch]);
 
-  const closeSelecter1 = () => {
-    setS1(!s1);
-    setS2(false);
-    setS3(false);
-  };
-  const closeSelecter2 = () => {
-    setS1(false);
-    setS2(!s2);
-    setS3(false);
-  };
-  const closeSelecter3 = () => {
-    setS1(false);
-    setS2(false);
-    setS3(!s3);
-  };
-  const closeSelecter4 = () => {
-    setS1(false);
-    setS2(false);
-    setS3(false);
-  };
+  // const closeSelecter1 = () => {
+  //   setS1(!s1);
+  //   setS2(false);
+  //   setS3(false);
+  // };
+  // const closeSelecter2 = () => {
+  //   setS1(false);
+  //   setS2(!s2);
+  //   setS3(false);
+  // };
+  // const closeSelecter3 = () => {
+  //   setS1(false);
+  //   setS2(false);
+  //   setS3(!s3);
+  // };
+  // const closeSelecter4 = () => {
+  //   setS1(false);
+  //   setS2(false);
+  //   setS3(false);
+  // };
 
   let allCars = useSelector((state) => state?.allCars)?.data;
 
   // const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllCars(page));
-  }, [dispatch,page]);
+  }, [dispatch, page]);
   ////////////////
 
   return (
@@ -887,16 +886,22 @@ const Home = () => {
 
       {/* <CarPagination/> */}
       <div className='carPage'>
-<div role='button' className='prev' style={{display : page < 2 && 'none'}}
-onClick={()=> setPage(cur=>cur-1)}>
-  <span className='arr'>&larr;</span>prev
-</div>
-<div role='button' className='next' style={{display : settings.carsCount < page * 12 && 'none'}} 
-onClick={()=> setPage(cur=> cur+1)}
->
-  next<span className='arr'>&rarr;</span>
-
-</div>
+        <div
+          role='button'
+          className='prev'
+          style={{ display: page < 2 && 'none' }}
+          onClick={() => setPage((cur) => cur - 1)}
+        >
+          <span className='arr'>&larr;</span>prev
+        </div>
+        <div
+          role='button'
+          className='next'
+          style={{ display: settings.carsCount < page * 12 && 'none' }}
+          onClick={() => setPage((cur) => cur + 1)}
+        >
+          next<span className='arr'>&rarr;</span>
+        </div>
       </div>
 
       <CarFooter />

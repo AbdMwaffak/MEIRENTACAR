@@ -1,22 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import Api from '../../extensions/API';
-import Brands from '../../extensions/Brands';
-import Categorys from '../../extensions/Categorys';
-import Colors from '../../extensions/Colors';
-import Models from '../../extensions/Models';
-import { getCarById } from '../../RTK/carByIdSlice';
-import { editCar } from '../../RTKadmin/editCarSlice';
-import './updateSettings.css';
 import { getSettings } from '../../RTKadmin/getSettingsSlice';
 import { updateSettings } from '../../RTKadmin/updateSettingsSlice';
-import toast, { Toaster } from 'react-hot-toast';
 import Loader from '../../extensions/loader/Loader';
+import './updateSettings.css';
 
 const UpdateSettings = () => {
-  
   const [name1, setName1] = useState('');
   const [phone1, setPhone1] = useState('');
   const [email1, setEmail1] = useState('');
@@ -47,7 +37,6 @@ const UpdateSettings = () => {
 
     setIntro1(settings?.intro1);
     setIntro2(settings?.intro2);
-
   }, [settings]);
   console.log(imagesSquer);
   ///////////
@@ -85,7 +74,6 @@ const UpdateSettings = () => {
 
     setValidated(true);
 
-
     const formData = new FormData();
     formData.append('phone1', phone1);
     formData.append('email1', email1);
@@ -104,20 +92,15 @@ const UpdateSettings = () => {
     };
     console.log([...formData]);
     dispatch(updateSettings(value));
-  
+
     // setImagesForm(true);
   };
 
   return (
     <div className='addCar'>
-      {set === 'loading' && <Loader text={'saving'}/>}
+      {set === 'loading' && <Loader text={'saving'} />}
 
-      
-
-
-      <div className='addCarimages' >
-
-
+      <div className='addCarimages'>
         {/* <div className='imagMasseg' style={{ display: imagesSquer?.length ? "flex" : "none" }}>
                     no images yet,  add some images
                 </div> */}
@@ -125,6 +108,7 @@ const UpdateSettings = () => {
           <img
             src={imagesForm ? image.URL : `/slider/${image}`}
             className='imgSettings'
+            alt=''
           />
         ))}
       </div>
@@ -176,8 +160,8 @@ const UpdateSettings = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-         {/* ///////////// */}
-         <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
+        {/* ///////////// */}
+        <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
           <Form.Label className='label'>email1</Form.Label>
           <Form.Control
             type='email'
@@ -216,8 +200,8 @@ const UpdateSettings = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-         {/* ///////////// */}
-         <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
+        {/* ///////////// */}
+        <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
           <Form.Label className='label'>email2</Form.Label>
           <Form.Control
             type='email'
@@ -256,13 +240,11 @@ const UpdateSettings = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-         {/* ///////////// */}
+        {/* ///////////// */}
         {/* <Button type='submit'>Submit form</Button> */}
         <button type='submit' className='editButton'>
           Submit form
         </button>
-      
-
       </Form>
     </div>
   );

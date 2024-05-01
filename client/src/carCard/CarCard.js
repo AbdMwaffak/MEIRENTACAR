@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Api from '../extensions/API';
 import phone from '../imge/phone.png';
 import telegram from '../imge/telegram.png';
 import whatsApp from '../imge/whatsApp.png';
@@ -22,7 +21,7 @@ const CarCard = (props) => {
     <div className='carCard'>
       <div role='button' className='carImge' onClick={handleClick}>
         {/* <Link to={`/car/${props.id}`} className='editLink'> */}
-        <img className='ccc1' src={`/cars/${props.images}`} />
+        <img className='ccc1' alt='' src={`/cars/${props.images}`} />
         {/* <img className='ccc1' src={props.images} /> */}
         {/* </Link> */}
       </div>
@@ -212,25 +211,17 @@ const CarCard = (props) => {
             href={`https://wa.me/${props.phone1}?text=Hello MEI I'd like to book this car [${props?.name}]\n   /car/${props.name}`}
             target='blank'
           >
-            <img role='button' className='whatsAppLogo' src={whatsApp} />
+            <img role='button' className='whatsAppLogo' src={whatsApp} alt='' />
           </a>
         </div>
         <div className=''>
           <a href={`https://t.me/${props.phone2}`} target='blank'>
-            <img
-              className='telegramLogo'
-              src={telegram}
-              //   alt="logo"
-            />
+            <img className='telegramLogo' src={telegram} alt='logo' />
           </a>
         </div>
         <div className=''>
           <a href={`tel:+${props.phone1}`} target='blank'>
-            <img
-              className='phoneLogo'
-              src={phone}
-              //   alt="logo"
-            />
+            <img className='phoneLogo' src={phone} alt='logo' />
           </a>
         </div>
 

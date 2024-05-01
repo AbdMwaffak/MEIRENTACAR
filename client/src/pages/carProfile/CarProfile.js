@@ -208,25 +208,17 @@ const CarProfile = () => {
                 href={`https://wa.me/${phone1}?text=Hello MEI I'd like to book this car [${car?.name}]\n ${Api}/car/${car?.name}`}
                 target='blank'
               >
-                <img className='whatsAppLogoUs' src={whatsApp} />
+                <img className='whatsAppLogoUs' src={whatsApp} alt='' />
               </a>
             </div>
             <div className='tl'>
               <a href={`https://t.me/${phone2}`} target='blank'>
-                <img
-                  className='telegramLogoUs'
-                  src={telegram}
-                  //   alt="logo"
-                />
+                <img className='telegramLogoUs' src={telegram} alt='logo' />
               </a>
             </div>
             <div className='ph'>
               <a href={`tel:+${phone1}`} target='blank'>
-                <img
-                  className='phoneLogoUs'
-                  src={phone}
-                  //   alt="logo"
-                />
+                <img className='phoneLogoUs' src={phone} alt='logo' />
               </a>
             </div>
 
