@@ -25,15 +25,16 @@ const Serche = () => {
   ////////////////
   useEffect(() => {
     let seCar = searchCars.filter((car) => {
-      if (filter == '') {
+      if (filter === '') {
         //if query is empty
         return car;
       } else if (car.name.toLowerCase().includes(filter.toLowerCase())) {
         return car;
       }
+      return;
     });
     setCars(seCar);
-  }, [searchCars]);
+  }, [searchCars, filter]);
   ///////////////
   useEffect(() => {
     setCars(filterCars);
@@ -78,7 +79,7 @@ const Serche = () => {
       <div className='cars'>
         <div
           className='emptyMessage'
-          style={{ display: cars.length == 0 ? 'flex' : 'none' }}
+          style={{ display: cars.length === 0 ? 'flex' : 'none' }}
         >
           No car matches this filter!
         </div>

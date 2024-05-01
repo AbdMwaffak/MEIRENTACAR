@@ -17,7 +17,7 @@ const Home = () => {
   // const [s3, setS3] = useState(false);
   const [page, setPage] = useState(1);
 
-  const [seatsNum, setSeatsNum] = useState(0);
+  // const [seatsNum, setSeatsNum] = useState(0);
 
   let settings = useSelector((state) => state.getSettings).data;
 

@@ -19,8 +19,8 @@ const CarProfile = () => {
   const phone1 = useLocation()?.state?.phone1;
   const phone2 = useLocation()?.state?.phone2;
   console.log(id);
-  const [range1, setRange1] = useState(15);
-  const [showImg, setshowImg] = useState('0');
+  // const [range1, setRange1] = useState(15);
+  // const [showImg, setshowImg] = useState('0');
 
   let suggestedCars = useSelector((state) => state.suggestedCars).data;
   // //////////////////////////////////

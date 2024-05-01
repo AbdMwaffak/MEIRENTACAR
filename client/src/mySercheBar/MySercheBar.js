@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './mySercheBar.css';
 import 'car-makes-icons/dist/style.css';
-import Brands from '../extensions/Brands';
-import Colors from '../extensions/Colors';
-import { useDispatch, useSelector } from 'react-redux';
-import { getSearchCars } from '../RTK/searchCarsSlice';
+import { useDispatch } from 'react-redux';
 
 import { setAdminState } from '../RTKadmin/adminStateSlice';
-import Serche from '../pages/serche/Serche';
 import { useNavigate } from 'react-router-dom';
 
 const MySercheBar = (props) => {

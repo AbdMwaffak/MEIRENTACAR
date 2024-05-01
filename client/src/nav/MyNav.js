@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import LoginModel from '../extensions/login/LoginModel';
@@ -16,7 +15,7 @@ if (cookies.get('token') !== undefined || null) {
 
 // style={{ display: guest ? "flex" : "none" }}
 const MyNav = () => {
-  const admin = useSelector((state) => state.adminState);
+  // const admin = useSelector((state) => state.adminState);
 
   return (
     <div className='navBar'>

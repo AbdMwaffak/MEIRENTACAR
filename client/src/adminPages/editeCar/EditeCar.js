@@ -57,7 +57,7 @@ const EditeCar = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCarById(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
   ///////////
   const imag2OnChange = (e) => {
     // console.log(e.target.files.length);
