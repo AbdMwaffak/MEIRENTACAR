@@ -31,7 +31,7 @@ const Serche = () => {
       } else if (car.name.toLowerCase().includes(filter.toLowerCase())) {
         return car;
       }
-      return;
+      return car;
     });
     setCars(seCar);
   }, [searchCars, filter]);

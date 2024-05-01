@@ -6,8 +6,8 @@ import Brands from '../../extensions/Brands';
 import Categorys from '../../extensions/Categorys';
 import Colors from '../../extensions/Colors';
 import Models from '../../extensions/Models';
-import './addCars.css';
 import Loader from '../../extensions/loader/Loader';
+import './addCars.css';
 
 const AddCars = () => {
   let set = useSelector((state) => state.addCar)?.status;

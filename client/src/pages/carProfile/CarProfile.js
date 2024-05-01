@@ -1,5 +1,5 @@
 import 'car-makes-icons/dist/style.css';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Carousel } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
