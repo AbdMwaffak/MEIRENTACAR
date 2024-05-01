@@ -25,6 +25,7 @@ jobs:
         working-directory: ./client
         run: |
           npm install
+          npm run build
 
       - name: Install Server Dependencies
         working-directory: ./server
@@ -33,3 +34,11 @@ jobs:
           export DATABASE_GLOBAL=$DATABASE_GLOBAL
           exportJWT_SECRET=$JWT_SECRET
           export EXPIRES_IN=$EXPIRES_IN
+
+      - name: Install Server Dependencies
+        working-directory: ./server
+        run: |
+          pm2 stop 0
+          pm2 start 0
+          pm2 save
+          sudo service nginx restart
