@@ -4,7 +4,7 @@ import phone from '../imge/phone.png';
 import telegram from '../imge/telegram.png';
 import whatsApp from '../imge/whatsApp.png';
 import './carCard.css';
-
+//
 const CarCard = (props) => {
   const navigate = useNavigate();
   function handleClick() {
