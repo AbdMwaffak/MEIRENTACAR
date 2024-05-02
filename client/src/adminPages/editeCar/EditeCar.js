@@ -61,6 +61,7 @@ const EditeCar = () => {
   ///////////
   const imag2OnChange = (e) => {
     // console.log(e.target.files.length);
+    //
     const fileArray = Array.from(e.target.files);
     fileArray.map((f) => (f['id'] = Math.random() * Math.pow(10, 16)));
     setImages(fileArray);
