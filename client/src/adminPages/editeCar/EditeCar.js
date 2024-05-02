@@ -66,8 +66,8 @@ const EditeCar = () => {
     setImages(fileArray);
     const fileArraySquer = Array.from(e.target.files);
     fileArraySquer.map((f, index) => {
-      (f['id'] = Math.random() * Math.pow(10, 16)),
-        (f['URL'] = URL.createObjectURL(e.target?.files[index]));
+      f['id'] = Math.random() * Math.pow(10, 16);
+      f['URL'] = URL.createObjectURL(e.target?.files[index]);
       return f;
     });
     setImagesSquer(fileArraySquer);
