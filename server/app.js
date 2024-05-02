@@ -17,7 +17,7 @@ const settingRoutes = require('./routes/settingRoutes');
 
 dotenv.config();
 const app = express();
-app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
 app.set('trust proxy', 1);
 ////
 const limiter = rateLimit({
