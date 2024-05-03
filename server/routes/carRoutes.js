@@ -19,20 +19,23 @@ router.post(
 
 router.get('/', carController.getAllCars);
 
-router.patch('/changeState/:id',
-    authController.protect,
-    carController.changeCarState);
+router.patch(
+  '/changeState/:id',
+  authController.protect,
+  carController.changeCarState
+);
 
 router.get('/suggestedCars/:id', carController.getSuggestedCar);
 
 router.get('/:id', carController.getCar);
 
-
 // router.patch('/:id', upload.array('images'), carController.updateCar);
-router.patch('/:id',
-    authController.protect,
-    authController.restrictTo('admin'),
- uploadFile('cars', 'car', 'image').array('images'),
-  carController.updateCar);
+router.patch(
+  '/:id',
+  authController.protect,
+  authController.restrictTo('admin'),
+  uploadFile('cars', 'car', 'image').array('images'),
+  carController.updateCar
+);
 
 module.exports = router;
