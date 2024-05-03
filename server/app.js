@@ -18,18 +18,18 @@ const settingRoutes = require('./routes/settingRoutes');
 dotenv.config();
 const app = express();
 app.use(cors());
-app.use(function (req, res, next) {
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept'
-  );
-  res.header('Access-Control-Allow-Headers', 'X-Requested-With');
-  res.header('Access-Control-Allow-Headers', 'Access-Control-Allow-Origin');
-  res.header('Access-Control-Allow-Origin', '161.35.198.230'); // update to match the domain you will make the request from
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.header(
+//     'Access-Control-Allow-Headers',
+//     'Origin, X-Requested-With, Content-Type, Accept'
+//   );
+//   res.header('Access-Control-Allow-Headers', 'X-Requested-With');
+//   res.header('Access-Control-Allow-Headers', 'Access-Control-Allow-Origin');
+//   res.header('Access-Control-Allow-Origin', '161.35.198.230'); // update to match the domain you will make the request from
+//   next();
+// });
 
-app.use(express.static(path.join(__dirname, '../client/build/index.html')));
+app.use(express.static(path.join(__dirname, '../client/build')));
 app.set('trust proxy', 1);
 ////
 const limiter = rateLimit({
