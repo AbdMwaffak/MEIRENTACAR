@@ -7,7 +7,7 @@ const helmet = require('helmet');
 const mongoSanitizer = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
-// const cors = require('cors');
+const cors = require('cors');
 const AppError = require('./utils/appError');
 const bodyParser = require('body-parser');
 const globalErrorHandler = require('./controllers/errorController');
@@ -17,7 +17,7 @@ const settingRoutes = require('./routes/settingRoutes');
 
 dotenv.config();
 const app = express();
-// app.use(cors());
+app.use(cors());
 app.use(function (req, res, next) {
   res.header(
     'Access-Control-Allow-Headers',
