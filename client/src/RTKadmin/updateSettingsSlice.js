@@ -9,13 +9,12 @@ let token = '';
 
 if (cookies.get('token') !== undefined || null) {
   token = cookies.get('token');
-} else console.log('you are not logged in');
+}
 //////////////
 
 export const updateSettings = createAsyncThunk(
   'settings/updateSettings',
   async (props) => {
-    console.log(props);
     const response = await axios.patch(`/settings/${props.id}`, props.reqobj, {
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -44,7 +43,6 @@ const updateSettingsSlice = createSlice({
     builder.addCase(updateSettings.rejected, (state, action) => {
       state.status = 'failed';
       state.error = action.error.payload;
-      console.log(state.error);
     });
   },
 });

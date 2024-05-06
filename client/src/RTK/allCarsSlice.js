@@ -27,7 +27,6 @@ const allCarsSlice = createSlice({
     builder.addCase(getAllCars.rejected, (state, action) => {
       state.status = 'failed';
       state.error = action.error.payload;
-      console.log(state.error);
     });
   },
 });

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import './deletedCars.css';
-import MySercheBar from '../../mySercheBar/MySercheBar';
 import { useDispatch, useSelector } from 'react-redux';
-import DeletedCarCard from '../deletedCarCard/DeletedCarCard';
+import MySercheBar from '../../mySercheBar/MySercheBar';
 import { getDeletedCars } from '../../RTKadmin/deletedCarsSlice';
 import { patchDeleteRecover } from '../../RTKadmin/deleteRecoverSlice';
+import DeletedCarCard from '../deletedCarCard/DeletedCarCard';
+import './deletedCars.css';
 
 const DeletedCars = () => {
   const [toggle, setToggle] = useState(false);
@@ -27,7 +27,7 @@ const DeletedCars = () => {
         {' '}
         <div className='deletedCarsNum'>
           {' '}
-          {deletedCars.length} reasolts{' '}
+          {deletedCars.length} results{' '}
         </div>{' '}
       </div>
 

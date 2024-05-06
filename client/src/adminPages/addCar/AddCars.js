@@ -11,7 +11,6 @@ import './addCars.css';
 
 const AddCars = () => {
   let set = useSelector((state) => state.addCar)?.status;
-  console.log(set);
   ////////////////
   const [name, setname] = useState('ddd');
   const [color, setcolor] = useState(Colors[0]);

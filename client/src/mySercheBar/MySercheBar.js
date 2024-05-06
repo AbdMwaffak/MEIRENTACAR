@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import './mySercheBar.css';
 import 'car-makes-icons/dist/style.css';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import './mySercheBar.css';
 
-import { setAdminState } from '../RTKadmin/adminStateSlice';
 import { useNavigate } from 'react-router-dom';
+import { setAdminState } from '../RTKadmin/adminStateSlice';
 
 const MySercheBar = (props) => {
   const [searchKey, setSearchKey] = useState('');
@@ -28,7 +28,7 @@ const MySercheBar = (props) => {
     <div
       className='mySercheBar'
       style={{
-        display: window.location.pathname.includes('admin') ? 'none' : 'flix',
+        display: window.location.pathname.includes('admin') ? 'none' : 'flex',
       }}
     >
       <div className='sercheout'>

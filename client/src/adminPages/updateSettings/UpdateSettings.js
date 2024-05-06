@@ -38,7 +38,6 @@ const UpdateSettings = () => {
     setIntro1(settings?.intro1);
     setIntro2(settings?.intro2);
   }, [settings]);
-  console.log(imagesSquer);
   ///////////
   const dispatch = useDispatch();
   useEffect(() => {
@@ -46,7 +45,6 @@ const UpdateSettings = () => {
   }, [dispatch]);
   ///////////
   const imag2OnChange = (e) => {
-    // console.log(e.target.files.length);
     const fileArray = Array.from(e.target.files);
     fileArray.map((f) => (f['id'] = Math.random() * Math.pow(10, 16)));
     setImages(fileArray);
@@ -89,7 +87,6 @@ const UpdateSettings = () => {
       reqobj: formData,
       id: settings._id,
     };
-    console.log([...formData]);
     dispatch(updateSettings(value));
 
     // setImagesForm(true);

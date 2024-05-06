@@ -3,7 +3,6 @@ const Features = require('../utils/features');
 const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
 
-
 function escapeRegex(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 }
@@ -69,7 +68,7 @@ exports.getSuggestedCar = catchAsync(async (req, res, next) => {
     }
   });
 
-  const mostPop = await Car.find().sort({ popularity: -1 });
+  const mostPop = await Car.find({ available: true }).sort({ popularity: -1 });
   suggestedCars = [
     ...suggestedCars,
     ...mostPop.filter((d) => {

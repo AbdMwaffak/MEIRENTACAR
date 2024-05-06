@@ -8,11 +8,10 @@ let token = '';
 
 if (cookies.get('token') !== undefined || null) {
   token = cookies.get('token');
-} else console.log('you are not logged in');
+}
 //////////////
 
 export const editCar = createAsyncThunk('cars/editCar', async (props) => {
-  console.log(props);
   const response = await axios.patch(
     `/cars/${props.value.id}`,
     props.value.reqobj,
@@ -41,7 +40,6 @@ const editCarSlice = createSlice({
     builder.addCase(editCar.rejected, (state, action) => {
       state.status = 'failed';
       state.error = action.error.payload;
-      console.log(state.error);
     });
   },
 });

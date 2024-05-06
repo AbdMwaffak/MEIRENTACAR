@@ -8,8 +8,7 @@ let token = '';
 
 if (cookies.get('token') !== undefined || null) {
   token = cookies.get('token');
-  console.log(token);
-} else console.log('you are not logged in');
+}
 //////////////
 
 export const patchDeleteRecover = createAsyncThunk(
@@ -20,7 +19,6 @@ export const patchDeleteRecover = createAsyncThunk(
       {},
       { headers: { Authorization: `Bearer ${token}` } }
     );
-    console.log(response.data);
     return response.data;
   }
 );
@@ -44,7 +42,6 @@ const deleteRecoverSlice = createSlice({
     builder.addCase(patchDeleteRecover.rejected, (state, action) => {
       state.status = 'failed';
       state.error = action.error.payload;
-      console.log(state.error);
     });
   },
 });

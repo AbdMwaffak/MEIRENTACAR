@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 /////////////
 // let token = ''
@@ -15,7 +15,6 @@ export const getsuggestedCars = createAsyncThunk(
       // const response = await axios.get('https://fakestoreapi.com/products'
       // , { headers: { "Authorization": `Bearer ${token}` } }
     );
-    console.log(response.data);
     return response.data;
   }
 );
@@ -33,12 +32,10 @@ const suggestedCarsSlice = createSlice({
     });
     builder.addCase(getsuggestedCars.fulfilled, (state, action) => {
       state.data = action.payload;
-      console.log(action.payload);
     });
     builder.addCase(getsuggestedCars.rejected, (state, action) => {
       state.status = 'failed';
       state.error = action.error.payload;
-      console.log(state.error);
     });
   },
 });

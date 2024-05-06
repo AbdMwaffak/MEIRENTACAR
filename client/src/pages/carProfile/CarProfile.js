@@ -2,9 +2,8 @@ import 'car-makes-icons/dist/style.css';
 import { useEffect } from 'react';
 import { Carousel } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import CarCard from '../../carCard/CarCard';
-import Api from '../../extensions/API';
 import phone from '../../imge/phone.png';
 import telegram from '../../imge/telegram.png';
 import whatsApp from '../../imge/whatsApp.png';
@@ -14,18 +13,16 @@ import { getsuggestedCars } from '../../RTK/suggestedCarsSlice';
 import './carProfile.css';
 
 const CarProfile = () => {
-  // const id = useParams()
   const id = useLocation()?.state?.id;
+  const params = useParams();
   const phone1 = useLocation()?.state?.phone1;
   const phone2 = useLocation()?.state?.phone2;
-  console.log(id);
   // const [range1, setRange1] = useState(15);
   // const [showImg, setshowImg] = useState('0');
 
   let suggestedCars = useSelector((state) => state.suggestedCars).data;
   // //////////////////////////////////
   let car = useSelector((state) => state.carById).data.car;
-
   useEffect(
     function () {
       document.title = `MEI | ${car?.name} | Dubai Rent A Car`;
@@ -43,12 +40,12 @@ const CarProfile = () => {
   ///////////
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getCarById(id));
-  }, [dispatch, id]);
+    dispatch(getCarById(id || params.id));
+  }, [dispatch, id, params.id]);
   ////////////////
   useEffect(() => {
-    dispatch(getsuggestedCars(id));
-  }, [dispatch, id]);
+    dispatch(getsuggestedCars(id || params.id));
+  }, [dispatch, id, params.id]);
   ////////////////
 
   return (
@@ -129,18 +126,39 @@ const CarProfile = () => {
           {/* <div className='infoCarPrice'> */}
           <div className='infoPrice'>
             <div className='PartialPrice1'>
-              <div className='textPrice'> Day </div>
-              <div className='textPrice'> {car?.price} </div>
+              <div className='textPrice' style={{ fontSize: '20px' }}>
+                {' '}
+                Day{' '}
+              </div>
+              <div className='textPrice'>
+                {' '}
+                {car?.price}
+                <span style={{ fontSize: '12px' }}> AED</span>{' '}
+              </div>
             </div>
             {/* ///////// */}
             <div className='PartialPrice2'>
-              <div className='textPrice'> week </div>
-              <div className='textPrice'> {car?.price * 7} </div>
+              <div className='textPrice' style={{ fontSize: '20px' }}>
+                {' '}
+                Week{' '}
+              </div>
+              <div className='textPrice'>
+                {' '}
+                {car?.priceWeekly}
+                <span style={{ fontSize: '12px' }}> AED</span>{' '}
+              </div>
             </div>
             {/* //////// */}
             <div className='PartialPrice3'>
-              <div className='textPrice'> month </div>
-              <div className='textPrice'> {car?.price * 30} </div>
+              <div className='textPrice' style={{ fontSize: '20px' }}>
+                {' '}
+                Month{' '}
+              </div>
+              <div className='textPrice'>
+                {' '}
+                {car?.priceMonthly}
+                <span style={{ fontSize: '12px' }}> AED</span>{' '}
+              </div>
             </div>
             {/* //////// */}
             {/* </div> */}
@@ -205,19 +223,19 @@ const CarProfile = () => {
 
             <div className=''>
               <a
-                href={`https://wa.me/${phone1}?text=Hello MEI I'd like to book this car [${car?.name}]\n ${Api}/car/${car?.name}`}
+                href={`https://wa.me/+971566634661?text=Hello MEI I'd like to book this car [${car?.name}]\n /car/${car?.name}`}
                 target='blank'
               >
                 <img className='whatsAppLogoUs' src={whatsApp} alt='' />
               </a>
             </div>
             <div className='tl'>
-              <a href={`https://t.me/${phone2}`} target='blank'>
+              <a href={`https://t.me/+971506004552`} target='blank'>
                 <img className='telegramLogoUs' src={telegram} alt='logo' />
               </a>
             </div>
             <div className='ph'>
-              <a href={`tel:+${phone1}`} target='blank'>
+              <a href={`tel:+971566634661`} target='blank'>
                 <img className='phoneLogoUs' src={phone} alt='logo' />
               </a>
             </div>

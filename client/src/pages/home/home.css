@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  max-width: 1400px;
 }
 
 .poster {
@@ -13,17 +14,15 @@
   margin: 10px 0px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   overflow: hidden;
-
 }
 
 .vv22,
-.vv11{
+.vv11 {
   color: cornsilk;
   font-size: calc(0.5rem + 0.9vw);
 }
-
 
 .titel1 {
   display: flex;
@@ -431,13 +430,13 @@
   background-color: #e8702e;
 }
 
-.homeImg{
+.homeImg {
   width: 100%;
   height: 100%;
   opacity: 0.4;
 }
 
-.carPage{
+.carPage {
   width: 100%;
   height: 50px;
   display: flex;
@@ -445,7 +444,7 @@
   justify-content: space-evenly;
 }
 .next,
-.prev{
+.prev {
   width: 100px;
   height: 40px;
   border-radius: 8px;
@@ -458,11 +457,10 @@
 }
 
 .next:hover,
-.prev:hover{
-    color : white;
-background : #f96402;
+.prev:hover {
+  color: white;
+  background: #f96402;
 }
-.arr{
+.arr {
   font-size: 24px;
 }
-

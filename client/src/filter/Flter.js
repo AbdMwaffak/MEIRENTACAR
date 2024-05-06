@@ -12,6 +12,7 @@ function Flter() {
   const [category, setCategory] = useState('all');
   const [sort, setSort] = useState('non sort');
   const [seats, setSeats] = useState('');
+  const [flButtonn, setFlButtonn] = useState(false);
   ////////////
   // const dispatch = useDispatch()
   // const sendselecation = (e) => {
@@ -38,12 +39,18 @@ function Flter() {
   };
 
   const x = `${reqobj.category}${reqobj.color}${reqobj.brand}${reqobj.seats}${reqobj.sort}`;
-  console.log(x);
   // }
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     e.stopPropagation();
+
+    setFlButtonn(!flButtonn);
+    setBrand('all');
+    setColor('all');
+    setCategory('all');
+    setSort('non sort');
+    setSeats('');
 
     navigate(`filter/cars?${x.slice(0, -1)}`, {
       state: {
@@ -54,17 +61,10 @@ function Flter() {
         category,
       },
     });
-    setFlButtonn(!flButtonn);
-    setBrand('all');
-    setColor('all');
-    setCategory('all');
-    setSort('non sort');
-    setSeats('');
   };
 
   /////////////
 
-  const [flButtonn, setFlButtonn] = useState(false);
   const flButtonnHandler = () => {
     setFlButtonn(!flButtonn);
     setBrand('all');
@@ -114,7 +114,7 @@ function Flter() {
               <Form.Label className='lab'> Sort </Form.Label>
               <Form.Select
                 className='sortMenue'
-                defaultValue='all'
+                value={sort}
                 onChange={(e) => setSort(e.target.value)}
               >
                 <option className='sortoption'> non sort </option>
@@ -149,7 +149,7 @@ function Flter() {
               <Form.Label className='lab'> Brand </Form.Label>
               <Form.Select
                 className='brandMenue'
-                defaultValue='all'
+                value={brand}
                 onChange={(e) => setBrand(e.target.value)}
               >
                 {Brands.map((brand, index) => (
@@ -165,7 +165,7 @@ function Flter() {
               <Form.Label className='lab'> Color </Form.Label>
               <Form.Select
                 className='brandMenue'
-                defaultValue='all'
+                value={color}
                 onChange={(e) => setColor(e.target.value)}
               >
                 {Colors.map((color, index) => (
@@ -181,8 +181,7 @@ function Flter() {
               <Form.Label className='lab'> Category </Form.Label>
               <Form.Select
                 className='typeMenue'
-                // defaultValue="all"
-
+                value={category}
                 onChange={(e) => setCategory(e.target.value)}
               >
                 <option> </option>
@@ -196,7 +195,7 @@ function Flter() {
             </div>
             <div className='babutton'>
               <div type='submit' className='fsButtonn' onClick={handleSubmit}>
-                <div className='btTitle'> start </div>
+                <div className='btTitle'> submit </div>
               </div>
             </div>
           </Form>

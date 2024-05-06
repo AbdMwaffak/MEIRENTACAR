@@ -6,6 +6,12 @@
   align-items: center;
 }
 
+@media screen and (max-width: 450px) {
+  .CarProfile {
+    width: 100%;
+  }
+}
+
 .infoCar {
   width: 96%;
   aspect-ratio: 5/3;
@@ -29,7 +35,7 @@
 
 .infoCar2 {
   width: 100%;
- height: calc(100%);
+  height: calc(100%);
   background-color: #3c3c39;
   border-radius: 8px;
   display: flex;
@@ -99,13 +105,19 @@
 }
 
 .suggested {
-  /* width: 100%; */
+  width: 32%;
   padding: 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: space-evenly;
+}
+
+@media screen and (max-width: 610px) {
+  .suggested {
+    width: 100%;
+  }
 }
 
 .infoPrice {

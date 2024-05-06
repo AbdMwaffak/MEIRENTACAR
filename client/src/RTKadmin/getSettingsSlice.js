@@ -5,7 +5,6 @@ export const getSettings = createAsyncThunk(
   'settings/getSettings',
   async () => {
     const response = await axios.get(`/settings`);
-    console.log(response.data);
     return response.data;
   }
 );
@@ -28,7 +27,6 @@ const getSettingsSlice = createSlice({
     builder.addCase(getSettings.rejected, (state, action) => {
       state.status = 'failed';
       state.error = action.error.payload;
-      console.log(state.error);
     });
   },
 });

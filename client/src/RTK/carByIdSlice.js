@@ -24,7 +24,6 @@ const carByIdSlice = createSlice({
     builder.addCase(getCarById.rejected, (state, action) => {
       state.status = 'failed';
       state.error = action.error.payload;
-      console.log(state.error);
     });
   },
 });

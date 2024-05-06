@@ -9,30 +9,22 @@ import './serche.css';
 
 const Serche = () => {
   let settings = useSelector((state) => state.getSettings).data;
-  console.log('settings : ', settings);
   const [filter, setFilter] = useState('');
   const [cars, setCars] = useState([]);
-  // const [carsFilterArrar, setCarsFilterArrar] = useState(false);
-  // const [carsSearchArrar, setCarsSearchArrar] = useState(false);
 
   const search = useLocation();
   const dispatch = useDispatch();
 
   let filterCars = useSelector((state) => state.filterCars).data;
-  // console.log(filterCars)
   let searchCars = useSelector((state) => state.searchCars).data;
-  // console.log(searchCars && filterCars)
-  ////////////////
+
   useEffect(() => {
-    let seCar = searchCars.filter((car) => {
-      if (filter === '') {
-        //if query is empty
-        return car;
-      } else if (car.name.toLowerCase().includes(filter.toLowerCase())) {
-        return car;
-      }
-      return car;
-    });
+    let seCar =
+      filter === ''
+        ? [...searchCars]
+        : searchCars.filter((car) =>
+            car?.name?.toLowerCase().includes(filter.toLowerCase())
+          );
     setCars(seCar);
   }, [searchCars, filter]);
   ///////////////
@@ -45,29 +37,7 @@ const Serche = () => {
       setFilter(search?.state?.searchKey);
       dispatch(getSearchCars());
     } else {
-      const value2 = {
-        color:
-          search?.state?.color === 'all'
-            ? ''
-            : 'color=' + search?.state?.color + '&',
-        category:
-          search?.state?.category === 'all'
-            ? ''
-            : 'category=' + search?.state?.category + '&',
-        brand:
-          search?.state?.brand === 'all'
-            ? ''
-            : 'brand=' + search?.state?.brand + '&',
-        sort:
-          search?.state?.sort === 'non sort'
-            ? ''
-            : 'sort=-' + search?.state?.sort + '&',
-        seats:
-          search?.state?.seats === ''
-            ? ''
-            : 'seats=' + search?.state?.seats + '&',
-      };
-      dispatch(getfilterCars(value2));
+      dispatch(getfilterCars(search.search));
     }
   }, [dispatch, search]);
   ////////////////

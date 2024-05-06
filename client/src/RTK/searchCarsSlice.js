@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 /////////////
 // let token = ''
@@ -11,14 +11,12 @@ export const getSearchCars = createAsyncThunk(
   'cars/getSearchCars',
   async (reqobj) => {
     // try {
-    console.log(reqobj);
 
     const response = await axios.get(
-      `/cars/?available=true`
+      `/cars?available=true`
       // const response = await axios.get('https://fakestoreapi.com/products'
       // , { headers: { "Authorization": `Bearer ${token}` } }
     );
-    console.log(response.data);
     return response.data;
   }
 );
@@ -36,12 +34,10 @@ const searchCarsSlice = createSlice({
     });
     builder.addCase(getSearchCars.fulfilled, (state, action) => {
       state.data = action.payload;
-      console.log(action.payload);
     });
     builder.addCase(getSearchCars.rejected, (state, action) => {
       state.status = 'failed';
       state.error = action.error.payload;
-      console.log('failed');
     });
   },
 });

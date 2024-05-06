@@ -11,7 +11,6 @@ import { getSettings } from '../../RTKadmin/getSettingsSlice';
 import './connect.css';
 const Connect = () => {
   let settings = useSelector((state) => state.getSettings).data;
-  console.log(settings);
   ///////////
   const dispatch = useDispatch();
   useEffect(() => {
@@ -31,7 +30,7 @@ const Connect = () => {
       <MySercheBar />
       <div className='titel'>
         {' '}
-        <div className='managers'> Managers </div>{' '}
+        {/* <div className='managers'> Managers </div>{' '} */}
       </div>
 
       <div className='managersInfo'>

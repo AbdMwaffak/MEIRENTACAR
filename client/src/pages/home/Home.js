@@ -10,7 +10,7 @@ import { getSettings } from '../../RTKadmin/getSettingsSlice';
 import './home.css';
 
 // style={{ display: active ? "none" : "flex" }}>
-const Home = () => {
+const Home = ({ history }) => {
   // const [arrw, setArrw] = useState(false);
   // const [s1, setS1] = useState(false);
   // const [s2, setS2] = useState(false);
@@ -22,6 +22,7 @@ const Home = () => {
   let settings = useSelector((state) => state.getSettings).data;
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getSettings());
   }, [dispatch]);

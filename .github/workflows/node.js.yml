@@ -6,11 +6,6 @@ on:
   pull_request:
     branches: [master]
 
-env:
-  DATABASE_GLOBAL: ${{ secrets.DATABASE_GLOBAL }}
-  JWT_SECRET: ${{ secrets.JWT_SECRET }}
-  EXPIRES_IN: ${{ secrets.EXPIRES_IN }}
-
 jobs:
   build:
     runs-on: self-hosted
@@ -31,11 +26,8 @@ jobs:
         working-directory: ./server
         run: |
           npm install
-          export DATABASE_GLOBAL=$DATABASE_GLOBAL
-          exportJWT_SECRET=$JWT_SECRET
-          export EXPIRES_IN=$EXPIRES_IN
 
-      - name: Install Server Dependencies
+      - name: Restart The Server
         working-directory: ./server
         run: |
           pm2 stop 0

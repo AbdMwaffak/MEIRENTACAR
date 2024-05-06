@@ -12,7 +12,7 @@ let token = '';
 
 if (cookies.get('token') !== undefined || null) {
   token = cookies.get('token');
-} else console.log('you are not logged in');
+}
 //////////////
 
 function LoginModel() {

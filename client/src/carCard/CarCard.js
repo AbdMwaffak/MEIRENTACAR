@@ -8,7 +8,7 @@ import './carCard.css';
 const CarCard = (props) => {
   const navigate = useNavigate();
   function handleClick() {
-    navigate(`/car/${props.name}`, {
+    navigate(`/car/${props.name}/${props.id}`, {
       state: {
         id: props.id,
         phone1: props.phone1,
@@ -208,19 +208,19 @@ const CarCard = (props) => {
         <div className='dash'> </div>
         <div className=''>
           <a
-            href={`https://wa.me/${props.phone1}?text=Hello MEI I'd like to book this car [${props?.name}]\n   /car/${props.name}`}
+            href={`https://wa.me/+971566634661?text=Hello MEI I'd like to book this car [${props?.name}]\n   /car/${props.name}`}
             target='blank'
           >
             <img role='button' className='whatsAppLogo' src={whatsApp} alt='' />
           </a>
         </div>
         <div className=''>
-          <a href={`https://t.me/${props.phone2}`} target='blank'>
+          <a href={`https://t.me/+971506004552`} target='blank'>
             <img className='telegramLogo' src={telegram} alt='logo' />
           </a>
         </div>
         <div className=''>
-          <a href={`tel:+${props.phone1}`} target='blank'>
+          <a href={`tel:+971566634661`} target='blank'>
             <img className='phoneLogo' src={phone} alt='logo' />
           </a>
         </div>

@@ -8,6 +8,11 @@
   align-items: center;
 }
 
+@media screen and (max-width: 450px) {
+  .carCard {
+    width: 100%;
+  }
+}
 .carImge {
   width: 100%;
   aspect-ratio: 1/1;
@@ -54,7 +59,7 @@
 .PartialPrice1,
 .PartialPrice2,
 .PartialPrice3 {
-  width: 70px;
+  width: 33%;
   display: flex;
   flex-direction: column;
   align-items: center;

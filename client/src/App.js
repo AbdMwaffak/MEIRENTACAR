@@ -27,11 +27,11 @@ function App() {
         <Toaster />
         <ScrollToTop />
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' index element={<Home />} />
           <Route path='/contactus' element={<Connect />} />
           <Route path='/search/:serche' element={<Serche />} />
           <Route path='/filter/:filter' element={<Serche />} />
-          <Route path='/car/:name' element={<CarProfile />} />
+          <Route path='/car/:name/:id' element={<CarProfile />} />
 
           <Route element={<Auth />}>
             <Route path='/admin' element={<Admin />}>

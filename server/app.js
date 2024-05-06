@@ -32,16 +32,17 @@ app.use(function (req, res, next) {
 app.use(express.static(path.join(__dirname, '../client/build')));
 app.set('trust proxy', 1);
 ////
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  limit: 100,
-  standardHeaders: 'draft-7',
-  legacyHeaders: false,
-  message: 'Too many requests from this IP , please try again in an hour!',
-});
+// const limiter = rateLimit({
+//   windowMs: 15 * 60 * 1000,
+//   limit: 100,
+//   standardHeaders: 'draft-7',
+//   legacyHeaders: false,
+//   message: 'Too many requests from this IP , please try again in an hour!',
+// });
 
-app.use('/', limiter);
+// app.use('/', limiter);
 
+// app.use(morgan('dev'));
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -72,6 +73,17 @@ app.use('/cars', carRoutes);
 app.use('/users', userRoutes);
 app.use('/settings', settingRoutes);
 app.use(globalErrorHandler);
+
+app.get('/*', function (req, res) {
+  res.sendFile(
+    path.join(__dirname, '../clinet/build/index.html'),
+    function (err) {
+      if (err) {
+        res.status(500).send(err);
+      }
+    }
+  );
+});
 
 app.all('*', (req, res, next) => {
   return next(new AppError('This route is not exist', 404));
