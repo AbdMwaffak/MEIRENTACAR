@@ -8,11 +8,11 @@ function uploadFile(dest, name, filetype) {
       cb(
         null,
         `./${
-          process.env.NODE_ENV === 'production' ? '../../../public' : 'public1'
+          process.env.NODE_ENV === 'production' ? './../../../public' : 'public'
         }/${dest}`
       );
     },
-    // set name of the image dynamically
+    // set name of the image
     filename: (req, file, cb) => {
       const ext = file.mimetype.split('/')[1];
       cb(

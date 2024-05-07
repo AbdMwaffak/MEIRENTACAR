@@ -45,8 +45,8 @@ const EditeCar = () => {
     setspeed(car?.speed);
     setseats(car?.seats);
     setPrice(car?.price);
-    setPrice(car?.priceWeekly);
-    setPrice(car?.priceMonthly);
+    setPriceWeekly(car?.priceWeekly);
+    setPriceMonthly(car?.priceMonthly);
     setbrand(car?.brand);
     setImages(car?.images);
     //    setImagesSquer([]);

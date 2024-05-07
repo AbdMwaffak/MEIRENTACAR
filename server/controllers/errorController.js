@@ -13,6 +13,7 @@ handleValidatorError = (err) => {
 
 const sendErrorDev = (err, req, res) => {
   // A) API
+  console.log(err);
   if (req.originalUrl.startsWith('/')) {
     return res.status(err.statusCode).json({
       status: err.status,
@@ -30,7 +31,6 @@ const sendErrorDev = (err, req, res) => {
 };
 
 const sendErrorProd = (err, req, res) => {
-  console.log(err);
   // A) API
   //  res.status(err.statusCode).json({
   //     status: err.status,

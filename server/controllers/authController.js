@@ -2,51 +2,50 @@ const jwt = require('jsonwebtoken');
 const User = require('./../models/userModel');
 const AppError = require('./../utils/appError');
 const catchAsync = require('./../utils/catchAsync');
-const {promisify} = require('util');
+const { promisify } = require('util');
 
-const signToken = id => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: process.env.EXPIRES_IN });
-}
+const signToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: process.env.EXPIRES_IN,
+  });
+};
 
 const createSendToken = (user, statusCode, res) => {
   const token = signToken(user._id);
 
   res.status(statusCode).json({
-      token,
-      user
+    token,
+    user,
   });
-}
+};
 
-exports.signUp = catchAsync(async(req, res, next) => {
-
+exports.signUp = catchAsync(async (req, res, next) => {
   const newUser = await User.create({
-      email: req.body.email,
-      password: req.body.password,
-      confirmPassword: req.body.confirmPassword,
-      role: req.body.role,
-
+    email: req.body.email,
+    password: req.body.password,
+    confirmPassword: req.body.confirmPassword,
+    role: req.body.role,
   });
 
   createSendToken(newUser, 201, res);
 });
 
-exports.login = catchAsync(async(req, res, next) => {
-
+exports.login = catchAsync(async (req, res, next) => {
   const { email, password } = req.body;
 
   // 1) check if email and password are inputted
   if (!email || !password) {
-      return next(new AppError('please provide email and password', 404));
+    return next(new AppError('please provide email and password', 404));
   }
   // 2) check if email is exist and pasword is correct
   const user = await User.findOne({ email }).select('+password');
   if (!user) {
     return next(new AppError('Incorrect Email or password!', 401));
-}
+  }
   const comparePasswords = await user.correctPassword(password, user.password);
 
   if (!comparePasswords) {
-      return next(new AppError('Incorrect email or Password!', 401));
+    return next(new AppError('Incorrect email or Password!', 401));
   }
 
   createSendToken(user, 200, res);
@@ -55,7 +54,6 @@ exports.login = catchAsync(async(req, res, next) => {
 exports.protect = catchAsync(async (req, res, next) => {
   let token;
 
-  console.log("req.headers" , req.headers)
   if (
     req.headers.authorization &&
     req.headers.authorization.startsWith('Bearer')
@@ -69,7 +67,12 @@ exports.protect = catchAsync(async (req, res, next) => {
 
   const currentUser = await User.findById(decoded.id);
   if (!currentUser) {
-    return next(new AppError('The user belonging to this token does not longer exist!', 401));
+    return next(
+      new AppError(
+        'The user belonging to this token does not longer exist!',
+        401
+      )
+    );
   }
 
   // if (currentUser.changedPasswordAfter(decoded.iat)) {
@@ -82,7 +85,9 @@ exports.protect = catchAsync(async (req, res, next) => {
 exports.restrictTo = (...roles) => {
   return (req, res, next) => {
     if (!roles.includes(req.user.role)) {
-      next(new AppError('You do not have permission to perform this action', 403)); // Forbidden!
+      next(
+        new AppError('You do not have permission to perform this action', 403)
+      ); // Forbidden!
     }
     next();
   };
