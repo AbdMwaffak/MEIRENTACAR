@@ -12,7 +12,7 @@ function uploadFile(dest, name, filetype) {
         }/${dest}`
       );
     },
-    // set name of the image
+    // set name of the image dynamically
     filename: (req, file, cb) => {
       const ext = file.mimetype.split('/')[1];
       cb(

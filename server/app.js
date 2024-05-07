@@ -67,7 +67,7 @@ app.use(
   })
 );
 
-app.use(express.static('../../public'));
+app.use(express.static('../../../public'));
 
 app.use('/cars', carRoutes);
 app.use('/users', userRoutes);
