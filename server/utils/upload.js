@@ -8,7 +8,7 @@ function uploadFile(dest, name, filetype) {
       cb(
         null,
         `./${
-          process.env.NODE_ENV === 'production' ? '../../public' : 'public1'
+          process.env.NODE_ENV === 'production' ? '../../../public' : 'public1'
         }/${dest}`
       );
     },
