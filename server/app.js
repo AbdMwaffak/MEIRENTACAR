@@ -67,7 +67,7 @@ app.use(
   })
 );
 
-app.use(express.static('public'));
+app.use(express.static('../../public'));
 
 app.use('/cars', carRoutes);
 app.use('/users', userRoutes);
@@ -76,7 +76,7 @@ app.use(globalErrorHandler);
 
 app.get('/*', function (req, res) {
   res.sendFile(
-    path.join(__dirname, '../clinet/build/index.html'),
+    path.join(__dirname, '../client/build/index.html'),
     function (err) {
       if (err) {
         res.status(500).send(err);
