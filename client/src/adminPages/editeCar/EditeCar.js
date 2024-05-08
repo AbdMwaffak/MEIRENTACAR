@@ -119,11 +119,7 @@ const EditeCar = () => {
                     no images yet,  add some images
                 </div> */}
         {imagesSquer?.map((image, index) => (
-          <img
-            src={imagesForm ? image.URL : `/cars/${image}`}
-            className='imgAC'
-            alt=''
-          />
+          <img src={imagesForm ? image.URL : image} className='imgAC' alt='' />
         ))}
       </div>
       <Form

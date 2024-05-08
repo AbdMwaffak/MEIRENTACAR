@@ -8,7 +8,6 @@ const {
   S3Client,
   PutObjectCommand,
   GetObjectCommand,
-  DeleteObjectCommand,
 } = require('@aws-sdk/client-s3');
 const { getSignedUrl } = require('@aws-sdk/s3-request-presigner');
 
@@ -70,12 +69,7 @@ exports.getAllCars = catchAsync(async (req, res, next) => {
   for (const car of cars) {
     let awsImages = [];
     for (let i = 0; i < car.images.length; i++) {
-      const getObjectParams = {
-        Bucket: bucketName,
-        Key: car.images[i],
-      };
-      const command = new GetObjectCommand(getObjectParams);
-      const url = await getSignedUrl(s3, command, { expiresIn: 3600 });
+      const url = 'https://dx7z2a433bgtj.cloudfront.net/' + car.images[i];
       awsImages = [...awsImages, url];
     }
     car.images = [...awsImages];
@@ -126,8 +120,8 @@ exports.getSuggestedCar = catchAsync(async (req, res, next) => {
       return d;
     }
   });
-  
-  const mostPop = await Car.find({available: true}).sort({ popularity: -1 });
+
+  const mostPop = await Car.find({ available: true }).sort({ popularity: -1 });
   suggestedCars = [
     ...suggestedCars,
     ...mostPop.filter((d) => {

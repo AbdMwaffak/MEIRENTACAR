@@ -21,7 +21,7 @@ const CarCard = (props) => {
     <div className='carCard'>
       <div role='button' className='carImge' onClick={handleClick}>
         {/* <Link to={`/car/${props.id}`} className='editLink'> */}
-        <img className='ccc1' alt='' src={`/cars/${props.images}`} />
+        <img className='ccc1' alt='' src={props.images} />
         {/* <img className='ccc1' src={props.images} /> */}
         {/* </Link> */}
       </div>

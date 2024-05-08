@@ -24,7 +24,7 @@ const DeletedCarCard = (props) => {
     <div className='carCard'>
       <div className='carImge' onClick={handleClick}>
         {/* <Link to={`/CarProfile/${props.id}`} > */}
-        <img className='ccc1' alt='' src={`/cars/${props.images}`} />
+        <img className='ccc1' alt='' src={props.images} />
         {/* </Link> */}
       </div>
       <div className='carInfo'>

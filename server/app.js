@@ -2,7 +2,7 @@ const dotenv = require('dotenv');
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
-const rateLimit = require('express-rate-limit');
+// const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const mongoSanitizer = require('express-mongo-sanitize');
 const xss = require('xss-clean');
@@ -67,7 +67,7 @@ app.use(
   })
 );
 
-app.use(express.static('../../../public'));
+app.use(express.static('public'));
 
 app.use('/cars', carRoutes);
 app.use('/users', userRoutes);

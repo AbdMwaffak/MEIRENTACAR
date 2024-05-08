@@ -102,7 +102,7 @@ const UpdateSettings = () => {
                 </div> */}
         {imagesSquer?.map((image, index) => (
           <img
-            src={imagesForm ? image.URL : `/slider/${image}`}
+            src={imagesForm ? image.URL : image}
             className='imgSettings'
             alt=''
           />

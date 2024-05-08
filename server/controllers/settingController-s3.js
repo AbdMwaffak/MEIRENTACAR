@@ -49,7 +49,6 @@ exports.update = catchAsync(async (req, res, next) => {
       images = [...images, imageName];
     }
   }
-  // const images = req.files.map((el) => el.filename);
 
   const updatedSetting = await Setting.findByIdAndUpdate(
     req.params.id,
@@ -79,12 +78,7 @@ exports.get = catchAsync(async (req, res, next) => {
   const carsCount = await Car.countDocuments({});
   let awsImages = [];
   for (let i = 0; i < setting.slider.length; i++) {
-    const getObjectParams = {
-      Bucket: bucketName,
-      Key: setting.slider[i],
-    };
-    const command = new GetObjectCommand(getObjectParams);
-    const url = await getSignedUrl(s3, command, { expiresIn: 3600 });
+    const url = 'https://dx7z2a433bgtj.cloudfront.net/' + setting.slider[i];
     awsImages = [...awsImages, url];
   }
   setting.slider = [...awsImages];
@@ -104,8 +98,7 @@ exports.add = async (req, res, next) => {
     };
     const command = new PutObjectCommand(params);
     await s3.send(command);
-    slider = [...slider , imageName]
-    
+    slider = [...slider, imageName];
   }
 
   const setting = await Setting.create({ ...req.body, slider });

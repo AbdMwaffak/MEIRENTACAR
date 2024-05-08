@@ -99,7 +99,7 @@ const CarProfile = () => {
                   // d-block
 
                   className='w-100 profileImg'
-                  src={`/cars/${imageSquer}`}
+                  src={imageSquer}
                   alt='First slide'
                 />
               </Carousel.Item>

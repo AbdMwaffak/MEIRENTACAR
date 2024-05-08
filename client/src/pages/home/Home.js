@@ -67,7 +67,7 @@ const Home = ({ history }) => {
                 // d-block
 
                 className='w-100 homeImg'
-                src={`/slider/${imageSquer}`}
+                src={imageSquer}
                 alt='First slide'
               />
               <Carousel.Caption>

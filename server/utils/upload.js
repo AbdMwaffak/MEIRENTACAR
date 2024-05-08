@@ -1,16 +1,11 @@
 const multer = require('multer');
 const AppError = require('./appError');
-
+const path = require('path');
 function uploadFile(dest, name, filetype) {
   const storage = multer.diskStorage({
     // Set the path to store the images in it
     destination: (req, file, cb) => {
-      cb(
-        null,
-        `./${
-          process.env.NODE_ENV === 'production' ? './../../../public' : 'public'
-        }/${dest}`
-      );
+      cb(null, `./../../../public/${dest}`);
     },
     // set name of the image
     filename: (req, file, cb) => {
