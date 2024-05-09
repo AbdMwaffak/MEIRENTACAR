@@ -27,7 +27,7 @@ function App() {
         <Toaster />
         <ScrollToTop />
         <Routes>
-          <Route path='/' index element={<Home />} />
+          <Route path='/' element={<Home />} />
           <Route path='/contactus' element={<Connect />} />
           <Route path='/search/:serche' element={<Serche />} />
           <Route path='/filter/:filter' element={<Serche />} />
