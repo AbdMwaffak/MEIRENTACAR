@@ -105,7 +105,7 @@
 }
 
 .suggested {
-  width: 32%;
+  width: 100%;
   padding: 10px;
   display: flex;
   flex-direction: row;

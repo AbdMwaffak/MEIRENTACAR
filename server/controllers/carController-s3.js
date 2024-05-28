@@ -85,14 +85,16 @@ exports.getCar = catchAsync(async (req, res, next) => {
 
   let awsImages = [];
   for (let i = 0; i < car.images.length; i++) {
-    const getObjectParams = {
-      Bucket: bucketName,
-      Key: car.images[i],
-    };
-    const command = new GetObjectCommand(getObjectParams);
-    const url = await getSignedUrl(s3, command, { expiresIn: 3600 });
+    // const getObjectParams = {
+    //   Bucket: bucketName,
+    //   Key: car.images[i],
+    const url = 'https://dx7z2a433bgtj.cloudfront.net/' + car.images[i];
     awsImages = [...awsImages, url];
   }
+  // const command = new GetObjectCommand(getObjectParams);
+  // const url = await getSignedUrl(s3, command, { expiresIn: 3600 });
+  // awsImages = [...awsImages, url];
+  // }
   car.images = [...awsImages];
   await Car.findByIdAndUpdate(req.params.id, {
     $inc: { popularity: 1 },
@@ -128,6 +130,14 @@ exports.getSuggestedCar = catchAsync(async (req, res, next) => {
       if (!ids.has(d.id) && d.id != car.id) return d;
     }),
   ];
+  for (const car of suggestedCars.slice(0, 8)) {
+    let awsImages = [];
+    for (let i = 0; i < car.images.length; i++) {
+      const url = 'https://dx7z2a433bgtj.cloudfront.net/' + car.images[i];
+      awsImages = [...awsImages, url];
+    }
+    car.images = [...awsImages];
+  }
 
   res.send(suggestedCars.slice(0, 8));
 });

@@ -23,7 +23,12 @@ app.use(function (req, res, next) {
   );
   res.header('Access-Control-Allow-Headers', 'X-Requested-With');
   res.header('Access-Control-Allow-Headers', 'Access-Control-Allow-Origin');
-  res.header('Access-Control-Allow-Origin', '161.35.198.230'); // update to match the domain you will make the request from
+  res.header(
+    'Access-Control-Allow-Origin',
+    'www.dubairentcars.ae',
+    'dubairentcars.ae',
+    '161.35.198.230'
+  ); // update to match the domain you will make the request from
   next();
 });
 
@@ -33,8 +38,12 @@ if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(helmet());
-
+//app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
 app.use(mongoSanitizer());
 app.use(xss());
 
@@ -58,7 +67,7 @@ app.use('/users', userRoutes);
 app.use('/settings', settingRoutes);
 app.use(globalErrorHandler);
 
-app.get('/*', function (req, res) {
+app.get('*', function (req, res) {
   res.sendFile(
     path.join(__dirname, '../client/build/index.html'),
     function (err) {
