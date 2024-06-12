@@ -39,21 +39,30 @@ exports.search = (req, res) => {
   res.json({ regexCars, cars });
 };
 
+async function store_S3(file, imageName) {
+  const params = {
+    Bucket: bucketName,
+    Key: imageName,
+    Body: file.buffer,
+    ContentType: file.mimetype,
+  };
+  const command = new PutObjectCommand(params);
+  await s3.send(command);
+}
+
 exports.addCar = catchAsync(async (req, res, next) => {
   const images = [];
-  for (let i = 0; i < req.files.length; i++) {
+
+  const imageName = randomImageName();
+  store_S3(req.files.mainImage[0], imageName);
+
+  for (let i = 0; i < req.files.images.length; i++) {
     const imageName = randomImageName();
-    const params = {
-      Bucket: bucketName,
-      Key: imageName,
-      Body: req.files[i].buffer,
-      ContentType: req.files[i].mimetype,
-    };
-    const command = new PutObjectCommand(params);
-    await s3.send(command);
+    await store_S3(req.files.images[i], imageName);
     images.push(imageName);
   }
-  await Car.create({ ...req.body, images });
+
+  await Car.create({ ...req.body, images, mainImage: imageName });
   res.status(201).send('Car Added successfully!');
 });
 
@@ -73,6 +82,7 @@ exports.getAllCars = catchAsync(async (req, res, next) => {
       awsImages = [...awsImages, url];
     }
     car.images = [...awsImages];
+    car.mainImage = 'https://dx7z2a433bgtj.cloudfront.net/' + car.mainImage;
   }
 
   res.status(200).json(cars);
@@ -96,6 +106,7 @@ exports.getCar = catchAsync(async (req, res, next) => {
   // awsImages = [...awsImages, url];
   // }
   car.images = [...awsImages];
+  car.mainImage = 'https://dx7z2a433bgtj.cloudfront.net/' + car.mainImage;
   await Car.findByIdAndUpdate(req.params.id, {
     $inc: { popularity: 1 },
   });
@@ -130,36 +141,51 @@ exports.getSuggestedCar = catchAsync(async (req, res, next) => {
       if (!ids.has(d.id) && d.id != car.id) return d;
     }),
   ];
-  for (const car of suggestedCars.slice(0, 8)) {
+  for (const car of suggestedCars.slice(0, 12)) {
     let awsImages = [];
     for (let i = 0; i < car.images.length; i++) {
       const url = 'https://dx7z2a433bgtj.cloudfront.net/' + car.images[i];
       awsImages = [...awsImages, url];
     }
     car.images = [...awsImages];
+    car.mainImage = 'https://dx7z2a433bgtj.cloudfront.net/' + car.mainImage;
   }
 
-  res.send(suggestedCars.slice(0, 8));
+  res.send(suggestedCars.slice(0, 12));
 });
 
 exports.updateCar = catchAsync(async (req, res, next) => {
   const car = await Car.findById(req.params.id);
+  console.log('files : ', req.files.mainImage);
   if (!car) return next(new AppError('There is no car with this Id!', 404));
-
   let images = [];
-  if (req.files.length > 0) {
-    for (let i = 0; i < req.files.length; i++) {
+  let mainImage = '';
+  if (req.files?.images?.length > 0) {
+    for (let i = 0; i < req.files.images.length; i++) {
       const imageName = randomImageName();
       const params = {
         Bucket: bucketName,
         Key: imageName,
-        Body: req.files[i].buffer,
-        ContentType: req.files[i].mimetype,
+        Body: req.files.images[i].buffer,
+        ContentType: req.files.images[i].mimetype,
       };
       const command = new PutObjectCommand(params);
       await s3.send(command);
       images = [...images, imageName];
     }
+  }
+
+  if (req.files?.mainImage?.length > 0) {
+    const imageName = randomImageName();
+    const params = {
+      Bucket: bucketName,
+      Key: imageName,
+      Body: req.files.mainImage[0].buffer,
+      ContentType: req.files.mainImage[0].mimetype,
+    };
+    const command = new PutObjectCommand(params);
+    await s3.send(command);
+    mainImage = imageName;
   }
 
   const {
@@ -174,6 +200,7 @@ exports.updateCar = catchAsync(async (req, res, next) => {
     powerHorse,
     priceWeekly,
     priceMonthly,
+    speed,
   } = req.body;
 
   await Car.findByIdAndUpdate(
@@ -190,7 +217,9 @@ exports.updateCar = catchAsync(async (req, res, next) => {
       powerHorse,
       priceWeekly,
       priceMonthly,
-      images: req.files.length > 0 ? images : car.images,
+      speed,
+      images: req.files?.images?.length > 0 ? images : car.images,
+      mainImage: req.files?.mainImage?.length > 0 ? mainImage : car.mainImage,
     },
     {
       new: true,
@@ -221,6 +250,20 @@ exports.changeCarState = catchAsync(async (req, res, next) => {
 });
 
 exports.search = catchAsync(async (req, res, next) => {});
+
+exports.quickEdits = async (req, res, next) => {
+  try {
+    const cars = await Car.find();
+    for (let i = 0; i < cars.length; i++) {
+      let car = await Car.findById(cars[i].id);
+      car.mainImage = car.images[0];
+      await car.save();
+    }
+    res.send(cars);
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 /* return next(
   new AppError(

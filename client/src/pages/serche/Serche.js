@@ -70,6 +70,7 @@ const Serche = () => {
             speed={car?.speed}
             WeeklyPrice={car?.priceWeekly}
             MonthlyPrice={car?.priceMonthly}
+            mainImage={car?.mainImage}
             phone1={settings?.phone1}
             phone2={settings?.phone2}
           />

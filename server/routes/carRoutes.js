@@ -1,17 +1,20 @@
 const router = require('express').Router();
 const carController = require('../controllers/carController-s3');
 const authController = require('./../controllers/authController');
-// const { uploadFile } = require('../utils/upload');
 const multer = require('multer');
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
+router.patch('/quick', carController.quickEdits);
 router.post(
   '/',
   authController.protect,
   authController.restrictTo('admin'),
-  upload.array('images'),
+  upload.fields([
+    { name: 'images', maxCount: 5 },
+    { name: 'mainImage', maxCount: 1 },
+  ]),
   carController.addCar
 );
 
@@ -31,22 +34,11 @@ router.patch(
   '/:id',
   authController.protect,
   authController.restrictTo('admin'),
-  upload.array('images'),
+  upload.fields([
+    { name: 'images', maxCount: 5 },
+    { name: 'mainImage', maxCount: 1 },
+  ]),
   carController.updateCar
 );
-// router.patch(
-//   '/:id',
-//   authController.protect,
-//   authController.restrictTo('admin'),
-//   uploadFile('cars', 'car', 'image').array('images'),
-//   carController.updateCar
-//   );
 
-// router.post(
-//   '/',
-//   authController.protect,
-//   authController.restrictTo('admin'),
-//   uploadFile('cars', 'car', 'image').array('images'),
-//   carController.addCar
-// );
 module.exports = router;

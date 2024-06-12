@@ -29,8 +29,9 @@ const carSchema = new mongoose.Schema(
     category: {
       type: String,
       enum: {
-        values: ['luxury', 'sport', 'suv', 'convertible'],
-        message: 'category is either [Luxury , Sport , Suv , Convertible]',
+        values: ['luxury', 'sport', 'suv', 'convertible', 'economic'],
+        message:
+          'category is either [Luxury , Sport , Suv , Convertible , economic]',
       },
     },
 
@@ -69,7 +70,10 @@ const carSchema = new mongoose.Schema(
       required: [true, 'A car must have number of seaters'],
     },
     images: [String],
-
+    mainImage: {
+      type: String,
+      default: '',
+    },
     speed: Number,
 
     description: String,

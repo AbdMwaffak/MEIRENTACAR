@@ -116,7 +116,7 @@ const CarProfile = () => {
               <li className='title1'> Color : {car?.color}</li>
               <li className='title1'> Category : {car?.category} </li>
               <li className='title1'> Model : {car?.model} </li>
-              <li className='title1'> PowerHorse : {car?.powerHorse} </li>
+              <li className='title1'> Cylinders : {car?.powerHorse} </li>
               <li className='title1'> GearBox : {car?.gear} </li>
               {/* <li className='title1'>  Fuel Type : {car?.fuel} </li> */}
               <li className='title1'> Speed : {car?.speed} Km/h</li>
@@ -304,6 +304,7 @@ const CarProfile = () => {
             speed={car?.speed}
             WeeklyPrice={car?.priceWeekly}
             MonthlyPrice={car?.priceMonthly}
+            mainImage={car?.mainImage}
             phone1={phone1}
             phone2={phone2}
           />

@@ -46,6 +46,7 @@ const DeletedCars = () => {
             price={car?.price}
             seats={car?.seats}
             speed={car?.speed}
+            mainImage={car?.mainImage}
             WeeklyPrice={car?.priceWeekly}
             MonthlyPrice={car?.priceMonthly}
             handleUnDelete={handleUnDelete}

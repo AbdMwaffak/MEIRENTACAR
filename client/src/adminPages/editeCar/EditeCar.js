@@ -28,6 +28,7 @@ const EditeCar = () => {
   const [price, setPrice] = useState(1000);
   const [brand, setbrand] = useState('');
   const [images, setImages] = useState([]);
+  const [mainImage, setMainImage] = useState();
   const [imagesSquer, setImagesSquer] = useState([]);
   const [imagesForm, setImagesForm] = useState(false);
   /////////////
@@ -49,6 +50,7 @@ const EditeCar = () => {
     setPriceMonthly(car?.priceMonthly);
     setbrand(car?.brand);
     setImages(car?.images);
+    setMainImage(car?.mainImage);
     //    setImagesSquer([]);
     // setImagesForm(true);
   }, [car]);
@@ -70,6 +72,12 @@ const EditeCar = () => {
     });
     setImagesSquer(fileArraySquer);
     setImagesForm(true);
+  };
+
+  const handleMainImage = (e) => {
+    const files = Array.from(e.target.files);
+    files.map((f) => (f['id'] = Math.random() * Math.pow(10, 16)));
+    setMainImage(files[0]);
   };
 
   const [validated, setValidated] = useState(false);
@@ -100,6 +108,7 @@ const EditeCar = () => {
     formData.append('priceMonthly', priceMonthly);
     formData.append('seats', seats);
     formData.append('description  ', 'description');
+    formData.append('mainImage', mainImage);
     for (let i = 0; i < images?.length; i++) {
       formData.append('images', images[i]);
     }
@@ -137,6 +146,22 @@ const EditeCar = () => {
             accept='image/*'
             multiple
             maxLength={4}
+          />
+          <Form.Control.Feedback type='invalid'>
+            you have missed this!
+          </Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group className='mb-1' controlId='exampleForm.ControlInput1'>
+          <Form.Label className='label'>Main Image</Form.Label>
+          <Form.Control
+            type='file'
+            required
+            onChange={handleMainImage}
+            name='dlimg'
+            accept='image/*'
+            multiple
+            maxLength={1}
           />
           <Form.Control.Feedback type='invalid'>
             you have missed this!
@@ -214,7 +239,7 @@ const EditeCar = () => {
         </Form.Group>
         {/* ///////////// */}
         <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
-          <Form.Label className='label'>powerHorse </Form.Label>
+          <Form.Label className='label'>Cylinders </Form.Label>
           <Form.Control
             type='text'
             placeholder='powerHorse'

@@ -879,6 +879,7 @@ const Home = ({ history }) => {
             MonthlyPrice={car?.priceMonthly}
             seats={car?.seats}
             speed={car?.speed}
+            mainImage={car?.mainImage}
             phone1={settings?.phone1}
             phone2={settings?.phone2}
           />
@@ -891,7 +892,10 @@ const Home = ({ history }) => {
           role='button'
           className='prev'
           style={{ display: page < 2 && 'none' }}
-          onClick={() => setPage((cur) => cur - 1)}
+          onClick={() => {
+            setPage((cur) => cur - 1);
+            window.scroll(0, 750);
+          }}
         >
           <span className='arr'>&larr;</span>prev
         </div>
@@ -899,7 +903,10 @@ const Home = ({ history }) => {
           role='button'
           className='next'
           style={{ display: settings.carsCount < page * 12 && 'none' }}
-          onClick={() => setPage((cur) => cur + 1)}
+          onClick={() => {
+            setPage((cur) => cur + 1);
+            window.scroll(0, 750);
+          }}
         >
           next<span className='arr'>&rarr;</span>
         </div>

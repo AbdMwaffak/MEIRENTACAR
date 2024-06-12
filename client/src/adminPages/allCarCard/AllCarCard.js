@@ -23,7 +23,7 @@ const AllCarCard = (props) => {
     <div className='carCard'>
       <div className='carImge' onClick={handleClick}>
         {/* <Link to={`/CarProfile/${props.id}`} > */}
-        <img className='ccc1' alt='' src={props.images} />
+        <img className='ccc1' alt='' src={props.mainImage} />
         {/* </Link> */}
       </div>
       <div className='carInfo'>
@@ -32,7 +32,7 @@ const AllCarCard = (props) => {
             <div className='textPrice'> Day </div>
             <div className='textPrice'>
               {' '}
-              {props.price} <span style={{ fontSize: '10px' }}>AED</span>
+              {props.price} <span style={{ fontSize: '12px' }}>AED</span>
             </div>
           </div>
           {/* ///////// */}
@@ -41,7 +41,7 @@ const AllCarCard = (props) => {
             <div className='textPrice'>
               {' '}
               {props.WeeklyPrice}
-              <span style={{ fontSize: '10px' }}>AED</span>{' '}
+              <span style={{ fontSize: '12px' }}>AED</span>{' '}
             </div>
           </div>
           {/* //////// */}
@@ -50,7 +50,7 @@ const AllCarCard = (props) => {
             <div className='textPrice'>
               {' '}
               {props.MonthlyPrice}
-              <span style={{ fontSize: '10px' }}>AED</span>{' '}
+              <span style={{ fontSize: '12px' }}>AED</span>{' '}
             </div>
           </div>
           {/* //////// */}
