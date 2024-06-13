@@ -17,7 +17,8 @@ const Brands = [
   'Cadillac',
   'Land Rover',
   'Lamborghini',
-  'Ferrari'
+  'Ferrari',
+  'Porsche',
 ];
 
 export default Brands;
