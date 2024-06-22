@@ -63,7 +63,7 @@ exports.addCar = catchAsync(async (req, res, next) => {
   }
 
   await Car.create({ ...req.body, images, mainImage: imageName });
-  res.status(201).send('Car Added successfully!');
+  res.status(201).send('Car Added successfully!!');
 });
 
 exports.getAllCars = catchAsync(async (req, res, next) => {
