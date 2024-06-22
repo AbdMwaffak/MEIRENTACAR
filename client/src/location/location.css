@@ -1,0 +1,29 @@
+.top-map-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.map-container {
+  height: 500px;
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 200px;
+}
+@media screen and (max-width: 740px) {
+  .top-map-container {
+    margin-bottom: 30px;
+  }
+}
+.title {
+  color: #d79a3d;
+  margin-bottom: 30px;
+  font-size: 50px;
+}
+
+.location-text {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 15px;
+}

@@ -10,7 +10,9 @@ import whatsApp from '../../imge/whatsApp.png';
 import MySercheBar from '../../mySercheBar/MySercheBar';
 import { getCarById } from '../../RTK/carByIdSlice';
 import { getsuggestedCars } from '../../RTK/suggestedCarsSlice';
+import Footer from '../../footer/CarFooter';
 import './carProfile.css';
+import { Helmet } from 'react-helmet';
 
 const CarProfile = () => {
   const id = useLocation()?.state?.id;
@@ -50,47 +52,24 @@ const CarProfile = () => {
 
   return (
     <div className='CarProfile'>
+      <Helmet>
+          <title>
+            {`Dubai Rent A Car - ${car?.name}`} 
+          </title>
+          <meta name='description'
+            content={`MEI car rental company is your reliable car rental partner
+            if you are looking for hiring ${car?.name}`}
+          />
+          <meta name='keywords' content={`
+            dubai rent a car, cheap car rental dubai, cheap car hire dubai, affordable car rental dubai, renty car rental dubai, hire car dubai cheap, affordable car rental in dubai, car rent uae dubai, luxury car hire dubai, monthly car rental dubai, lamborghini rental dubai, rent ferrari dubai, car rental dubai with driver, long term car hire dubai, vip car rental dubai, range rover rental dubai, superior car rental dubai, luxury car rental dubai with driver, rent ${car?.name} in Dubai
+          `}/>
+        </Helmet>
       <MySercheBar />
       <div className='titel'>
         {' '}
         <div className='managers'> {car?.name} </div>{' '}
       </div>
       <div className='infoCar'>
-        {/* <div className='infoCarImge'>
-          <div className='carImg'>
-            <img className='ccc1' src={`${Api}/cars/${car?.images[showImg]}`} />
-          </div>
-          <div className='carImgExtra'>
-            <div className='extra1' onClick={() => setshowImg('0')}>
-              {' '}
-              <img
-                className='ccc1'
-                src={`${Api}/cars/${car?.images[0]}`}
-              />{' '}
-            </div>
-            <div className='extra1' onClick={() => setshowImg('1')}>
-              {' '}
-              <img
-                className='ccc1'
-                src={`${Api}/cars/${car?.images[1]}`}
-              />{' '}
-            </div>
-            <div className='extra1' onClick={() => setshowImg('2')}>
-              {' '}
-              <img
-                className='ccc1'
-                src={`${Api}/cars/${car?.images[2]}`}
-              />{' '}
-            </div>
-            <div className='extra1' onClick={() => setshowImg('3')}>
-              {' '}
-              <img
-                className='ccc1'
-                src={`${Api}/cars/${car?.images[3]}`}
-              />{' '}
-            </div>
-          </div>
-        </div> */}
         <div className='infoCarImge'>
           <Carousel data-bs-theme='dark'>
             {car?.images?.map((imageSquer, index) => (
@@ -109,7 +88,7 @@ const CarProfile = () => {
 
         <div className='infoCar1'>
           <div className='infoCar2'>
-            <h1 className='infCarTitle'> Car Information</h1>
+            <h1 className='infCarTitle'>Specification</h1>
             <ul className='con1'>
               <li className='title1'> Name : {car?.name} </li>
               <li className='title1'> Brand : {car?.brand}</li>
@@ -160,31 +139,6 @@ const CarProfile = () => {
                 <span style={{ fontSize: '12px' }}> AED</span>{' '}
               </div>
             </div>
-            {/* //////// */}
-            {/* </div> */}
-            {/* <h1 className='DurationOfRent'> Duration of rent  </h1>
-                        <div className='prslist'>
-
-
-
-                            <div className='tt1'>
-                                <div className='tt2'>
-                                    <p>1</p>
-                                    <div className='Range'>
-                                        <Form.Range min="1" max="30"
-                                            onChange={(e) => setRange1(e.target.value)} />
-                                    </div>
-                                    <p> 30+ </p>
-                                </div>
-                                <p className='rengeDay'> {range1 * car?.price} AED</p>
-
-                            </div>
- 
-                            <div className='numMonth'>
-                                {range1}
-                                <h1 className='price-title'> day </h1>
-                            </div>
-                        </div> */}
           </div>
           {/* <div className='infoCar3'> */}
           <div className='conactUsIner2 '>
@@ -199,8 +153,8 @@ const CarProfile = () => {
                 id='chevron-down-Filled_1_'
                 d='M944.707,2705.707l-9,9a1,1,0,0,1-1.414,0l-9-9a1,1,0,0,1,1.414-1.414l8.293,8.293,8.293-8.293a1,1,0,1,1,1.414,1.414Z'
                 transform='translate(-924.5 -2703.409)'
-                fill='#e8702e'
-                stroke='#e8702e'
+                fill='#d79a3d'
+                stroke='#d79a3d'
                 strokeWidth='1'
               />
             </svg>
@@ -215,8 +169,8 @@ const CarProfile = () => {
                 id='chevron-down-Filled_1_'
                 d='M944.707,2705.707l-9,9a1,1,0,0,1-1.414,0l-9-9a1,1,0,0,1,1.414-1.414l8.293,8.293,8.293-8.293a1,1,0,1,1,1.414,1.414Z'
                 transform='translate(-924.5 -2703.409)'
-                fill='#e8702e'
-                stroke='#e8702e'
+                fill='#d79a3d'
+                stroke='#d79a3d'
                 strokeWidth='1'
               />
             </svg>
@@ -251,8 +205,8 @@ const CarProfile = () => {
                 id='chevron-down-Filled_1_'
                 d='M944.707,2705.707l-9,9a1,1,0,0,1-1.414,0l-9-9a1,1,0,0,1,1.414-1.414l8.293,8.293,8.293-8.293a1,1,0,1,1,1.414,1.414Z'
                 transform='translate(-924.5 -2703.409)'
-                fill='#e8702e'
-                stroke='#e8702e'
+                fill='#d79a3d'
+                stroke='#d79a3d'
                 strokeWidth='1'
               />
             </svg>
@@ -267,8 +221,8 @@ const CarProfile = () => {
                 id='chevron-down-Filled_1_'
                 d='M944.707,2705.707l-9,9a1,1,0,0,1-1.414,0l-9-9a1,1,0,0,1,1.414-1.414l8.293,8.293,8.293-8.293a1,1,0,1,1,1.414,1.414Z'
                 transform='translate(-924.5 -2703.409)'
-                fill='#e8702e'
-                stroke='#e8702e'
+                fill='#d79a3d'
+                stroke='#d79a3d'
                 strokeWidth='1'
               />
             </svg>
@@ -281,7 +235,7 @@ const CarProfile = () => {
         <div className='c1'> </div>
         <div className='c2'> </div>
         <div className='c3'> </div>
-        <div className='cc'> Suggested Cars </div>
+        <div className='cc'> Similar Cars </div>
         <div className='c3'> </div>
         <div className='c2'> </div>
         <div className='c1'> </div>
@@ -310,6 +264,7 @@ const CarProfile = () => {
           />
         ))}
       </div>
+      <Footer/>
     </div>
   );
 };

@@ -10,7 +10,7 @@ const Brands = [
   'Kia',
   'Range Rover',
   'Rolls Royse',
-  'Bintly',
+  'Bentley',
   'Mazda',
   'Chevrolet',
   'GMC',
@@ -19,6 +19,9 @@ const Brands = [
   'Lamborghini',
   'Ferrari',
   'Porsche',
+  'Tesla',
+  'Bugatti',
+  'McLaren',
 ];
 
 export default Brands;

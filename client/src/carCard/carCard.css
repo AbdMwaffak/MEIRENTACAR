@@ -22,7 +22,7 @@
 .carImge {
   width: 100%;
   aspect-ratio: 3/2;
-  background-color: #e8702e;
+  background-color: #d79a3d;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -52,7 +52,7 @@
   flex-direction: row;
   align-items: center;
   border-radius: 10px;
-  border: 2px solid #e8702e;
+  border: 2px solid #d79a3d;
   justify-content: space-around;
   margin: 5px 0px;
   /* padding: 10px; */
@@ -74,8 +74,8 @@
 }
 
 .PartialPrice2 {
-  border-left: 2px solid #e8702e;
-  border-right: 2px solid #e8702e;
+  border-left: 2px solid #d79a3d;
+  border-right: 2px solid #d79a3d;
 }
 
 .carName {
@@ -121,7 +121,7 @@
 .dash {
   width: 40px;
   height: 3px;
-  background-color: #e8702e;
+  background-color: #d79a3d;
   border-radius: 16px;
 }
 

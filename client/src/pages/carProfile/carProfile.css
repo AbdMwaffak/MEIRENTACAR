@@ -14,7 +14,7 @@
 
 .infoCar {
   width: 96%;
-  aspect-ratio: 5/3;
+  aspect-ratio: 5/2;
   /* background-color: #3C3C39; */
   border-radius: 16px;
   display: flex;
@@ -23,6 +23,12 @@
   gap: 10px;
   margin: 10px 0;
 }
+@media screen and (max-width: 450px) {
+  .infoCar {
+    width: 100%;
+  }
+}
+
 
 .infoCar1 {
   width: 40%;
@@ -129,7 +135,7 @@
   flex-direction: row;
   align-items: center;
   border-radius: 5px;
-  border: 4px solid #e8702e;
+  border: 4px solid #d79a3d;
   justify-content: space-around;
   /* margin: 10px; */
   padding: 20px;
@@ -146,17 +152,17 @@
 }
 
 li {
-  border-bottom: 1px solid;
+  /* border-bottom: 1px solid; */
 }
 
 li.title1::marker {
-  background-color: #e8702e;
-  color: #e8702e;
+  background-color: #d79a3d;
+  color: #d79a3d;
   font-weight: 500;
 }
 
 .infCarTitle {
-  color: #e8702e;
+  color: #d79a3d;
   margin-top: 20px;
 }
 
@@ -176,7 +182,7 @@ li.title1::marker {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border: 4px solid #e8702e;
+  border: 4px solid #d79a3d;
   padding: 5px;
   margin: 10px;
   margin-top: 0px;
@@ -223,8 +229,8 @@ li.title1::marker {
 }
 
 .numMonth {
-  border-left: 4px solid #e8702e;
-  color: #e8702e;
+  border-left: 4px solid #d79a3d;
+  color: #d79a3d;
   width: 25%;
   padding-left: 2%;
   margin-bottom: 1%;
@@ -244,7 +250,7 @@ li.title1::marker {
 
 @media screen and (max-width: 800px) {
   .infoCar {
-    width: 96%;
+    width: 99%;
     /* aspect-ratio: 1/1; */
     /* background-color: #3C3C39; */
     border-radius: 16px;
@@ -257,13 +263,13 @@ li.title1::marker {
   }
 
   .infoCarImge {
-    width: 90%;
+    width: 99%;
     margin: 0;
     overflow: visible;
   }
 
   .infoCar1 {
-    width: 90%;
+    width: 99%;
     padding-bottom: 5px;
     /* height: 570px; */
   }
@@ -281,5 +287,5 @@ li.title1::marker {
 
 .profileImg {
   width: 100%;
-  aspect-ratio: 1/1;
+  aspect-ratio: 3/2;
 }

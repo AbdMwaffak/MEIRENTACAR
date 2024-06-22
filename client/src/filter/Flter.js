@@ -13,22 +13,6 @@ function Flter() {
   const [sort, setSort] = useState('non sort');
   const [seats, setSeats] = useState('');
   const [flButtonn, setFlButtonn] = useState(false);
-  ////////////
-  // const dispatch = useDispatch()
-  // const sendselecation = (e) => {
-  //   // loghandleClose();
-  //   e.preventDefault();
-  //   const value = {
-  //     brand,
-  //     color,
-  //     category,
-  //     price,
-  //     seats
-
-  //   }
-  //   // dispatch(selector(value))
-
-  //   console.log(value)
 
   const reqobj = {
     color: color === 'all' ? '' : 'color=' + color + '&',

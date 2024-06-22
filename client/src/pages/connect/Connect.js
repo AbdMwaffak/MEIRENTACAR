@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Footer from '../../footer/CarFooter';
-import admin1 from '../../imge/admin1.jpeg';
 import admin2 from '../../imge/admin2.jpeg';
+import admin3 from '../../imge/admin3.jpg';
 import phone from '../../imge/phone.png';
 import telegram from '../../imge/telegram.png';
 import whatsApp from '../../imge/whatsApp.png';
@@ -54,7 +54,7 @@ const Connect = () => {
 
         <div className='managersInfo1'>
           <div className='mang1Imge'>
-            <img src={admin1} className='admin1Imm' alt='admin' />
+            <img src={admin3} className='admin1Imm' alt='admin' />
           </div>
 
           <div className='mang1Info'>

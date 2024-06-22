@@ -1,0 +1,51 @@
+.service-div {
+  position: relative;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  padding: 50px;
+  padding-bottom: 15px;
+}
+
+.service-div::before {
+  margin-top: 20px;
+  content: '';
+  background-image: url('https://dx7z2a433bgtj.cloudfront.net/7df0bf0313e2373a949443fe5386fbc175697043025daa918110ba2121d679b8');
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.5;
+  z-index: -1;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+.title {
+  margin-top: 50px;
+  color: #d79a3d;
+}
+
+.description {
+  position: relative;
+  z-index: 1;
+  color: white;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 475px) {
+  .service-div {
+    width: 98%;
+  }
+}

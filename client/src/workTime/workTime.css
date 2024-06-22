@@ -1,0 +1,49 @@
+.top-div{
+  position: fixed;
+  top : 100px;
+  z-index: 9999;
+}
+.work-time-container { 
+  width: 400px;
+  height: 500px;
+  background-color:#151515 ;
+  color: #d79a3d;
+  position: relative;
+  /* top: 200px; */
+  font-weight: 300;
+  font-size: 32px;
+  border-radius: 20px;
+  opacity: .9;
+  text-align: center;
+}
+
+.logo-image{
+  width: 200px;
+  height: 150px;
+}
+.time-icon{
+  font-size: 30px;
+}
+.phrase1{
+  color: #d79a3d;
+  position: absolute;
+  top: 35%;
+  right : 20px;
+  font-size: 30px;
+  
+}
+.phrase2{
+  color: #d79a3d;
+  position: absolute;
+  top: 50%;
+}
+
+.close-btn{
+  position: absolute;
+  bottom: 10px;
+  background-color: #d79a3d;
+  color: white;
+  width: 90%;
+  right: 20px;
+  border-radius: 15px;
+}
