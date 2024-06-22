@@ -95,16 +95,10 @@ exports.getCar = catchAsync(async (req, res, next) => {
 
   let awsImages = [];
   for (let i = 0; i < car.images.length; i++) {
-    // const getObjectParams = {
-    //   Bucket: bucketName,
-    //   Key: car.images[i],
     const url = 'https://dx7z2a433bgtj.cloudfront.net/' + car.images[i];
     awsImages = [...awsImages, url];
   }
-  // const command = new GetObjectCommand(getObjectParams);
-  // const url = await getSignedUrl(s3, command, { expiresIn: 3600 });
-  // awsImages = [...awsImages, url];
-  // }
+
   car.images = [...awsImages];
   car.mainImage = 'https://dx7z2a433bgtj.cloudfront.net/' + car.mainImage;
   await Car.findByIdAndUpdate(req.params.id, {
@@ -120,7 +114,6 @@ exports.getSuggestedCar = catchAsync(async (req, res, next) => {
   const car = await Car.findById(req.params.id);
   if (!car) {
     return res.send('Car Not Found');
-    // return next(new AppError('There is no car with this Id!', 404));
   }
 
   let suggestedCars = [];
