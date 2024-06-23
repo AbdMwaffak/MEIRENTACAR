@@ -258,13 +258,6 @@ exports.quickEdits = async (req, res, next) => {
   }
 };
 
-/* return next(
-  new AppError(
-    'This route is not for password updates. Please use /updateMyPassword.',
-    400
-  )
-);*/
-
 // Update Car : [Patch , http://localhost:3000/cars/id] Body : {updated fields}
 // Change Car State : [Patch , http://localhost:3000/cars/changeState/id] Body : {}
 //
